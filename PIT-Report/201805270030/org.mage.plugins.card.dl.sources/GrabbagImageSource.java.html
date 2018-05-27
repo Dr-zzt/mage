@@ -1,0 +1,7054 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+
+
+<h1>GrabbagImageSource.java</h1>
+
+<table class="src">
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_1'/>
+1
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_1'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>/*</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_2'/>
+2
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_2'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * Copyright 2010 BetaSteward_at_googlemail.com. All rights reserved.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_3'/>
+3
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_3'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_4'/>
+4
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_4'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * Redistribution and use in source and binary forms, with or without modification, are</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_5'/>
+5
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_5'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * permitted provided that the following conditions are met:</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_6'/>
+6
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_6'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_7'/>
+7
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_7'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *    1. Redistributions of source code must retain the above copyright notice, this list of</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_8'/>
+8
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_8'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *       conditions and the following disclaimer.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_9'/>
+9
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_9'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_10'/>
+10
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_10'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *    2. Redistributions in binary form must reproduce the above copyright notice, this list</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_11'/>
+11
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_11'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *       of conditions and the following disclaimer in the documentation and/or other materials</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_12'/>
+12
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_12'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *       provided with the distribution.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_13'/>
+13
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_13'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_14'/>
+14
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_14'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * THIS SOFTWARE IS PROVIDED BY BetaSteward_at_googlemail.com ``AS IS&#39;&#39; AND ANY EXPRESS OR IMPLIED</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_15'/>
+15
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_15'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_16'/>
+16
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_16'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL BetaSteward_at_googlemail.com OR</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_17'/>
+17
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_17'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_18'/>
+18
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_18'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_19'/>
+19
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_19'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_20'/>
+20
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_20'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_21'/>
+21
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_21'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_22'/>
+22
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_22'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_23'/>
+23
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_23'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_24'/>
+24
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_24'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * The views and conclusions contained in the software and documentation are those of the</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_25'/>
+25
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_25'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * authors and should not be interpreted as representing official policies, either expressed</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_26'/>
+26
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_26'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * or implied, of BetaSteward_at_googlemail.com.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_27'/>
+27
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_27'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_28'/>
+28
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_28'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>package org.mage.plugins.card.dl.sources;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_29'/>
+29
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_29'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_30'/>
+30
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_30'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.io.IOException;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_31'/>
+31
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_31'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.ArrayList;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_32'/>
+32
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_32'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.HashMap;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_33'/>
+33
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_33'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.LinkedHashSet;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_34'/>
+34
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_34'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.Set;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_35'/>
+35
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_35'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.concurrent.TimeUnit;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_36'/>
+36
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_36'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.logging.Level;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_37'/>
+37
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_37'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import org.apache.log4j.Logger;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_38'/>
+38
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_38'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import org.mage.plugins.card.images.CardDownloadData;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_39'/>
+39
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_39'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_40'/>
+40
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_40'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>/**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_41'/>
+41
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_41'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_42'/>
+42
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_42'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * @author spjspj</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_43'/>
+43
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_43'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> */</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_44'/>
+44
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_44'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>public enum GrabbagImageSource implements CardImageSource {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_45'/>
+45
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_45'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_46'/>
+46
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_46'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>    instance;</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_47'/>
+47
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_47'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>    private static final Logger logger = Logger.getLogger(GrabbagImageSource.class);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_48'/>
+48
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_48'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_49'/>
+49
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_49'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>    private static final Set&#60;String&#62; supportedSets = new LinkedHashSet&#60;String&#62;() {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_50'/>
+50
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_50'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_51'/>
+51
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_51'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>            add(&#34;PTC&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_52'/>
+52
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_52'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>            add(&#34;SWS&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_53'/>
+53
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_53'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_54'/>
+54
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_54'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    };</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_55'/>
+55
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_55'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_56'/>
+56
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_56'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_57'/>
+57
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_57'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public String getSourceName() {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_58'/>
+58
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_58'>1</a>
+<span>
+
+1. getSourceName : mutated return of Object value for org/mage/plugins/card/dl/sources/GrabbagImageSource::getSourceName to ( if (x != null) null else throw new RuntimeException ) &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>        return &#34;&#34;;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_59'/>
+59
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_59'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_60'/>
+60
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_60'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_61'/>
+61
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_61'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_62'/>
+62
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_62'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public float getAverageSize() {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_63'/>
+63
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_63'>1</a>
+<span>
+
+1. getAverageSize : replaced return of float value with -(x + 1) for org/mage/plugins/card/dl/sources/GrabbagImageSource::getAverageSize &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>        return 26.7f;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_64'/>
+64
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_64'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_65'/>
+65
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_65'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_66'/>
+66
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_66'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_67'/>
+67
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_67'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public String getNextHttpImageUrl() {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_68'/>
+68
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_68'>1</a>
+<span>
+
+1. getNextHttpImageUrl : mutated return of Object value for org/mage/plugins/card/dl/sources/GrabbagImageSource::getNextHttpImageUrl to ( if (x != null) null else throw new RuntimeException ) &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>        return null;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_69'/>
+69
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_69'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_70'/>
+70
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_70'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_71'/>
+71
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_71'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_72'/>
+72
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_72'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public String getFileForHttpImage(String httpImageUrl) {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_73'/>
+73
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_73'>1</a>
+<span>
+
+1. getFileForHttpImage : mutated return of Object value for org/mage/plugins/card/dl/sources/GrabbagImageSource::getFileForHttpImage to ( if (x != null) null else throw new RuntimeException ) &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>        return null;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_74'/>
+74
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_74'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_75'/>
+75
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_75'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_76'/>
+76
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_76'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_77'/>
+77
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_77'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public String generateURL(CardDownloadData card) throws Exception {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_78'/>
+78
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_78'>1</a>
+<span>
+
+1. generateURL : negated conditional &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>        if (singleLinks == null) {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_79'/>
+79
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_79'>1</a>
+<span>
+
+1. generateURL : removed call to org/mage/plugins/card/dl/sources/GrabbagImageSource::setupLinks &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>            setupLinks();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_80'/>
+80
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_80'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_81'/>
+81
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_81'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_82'/>
+82
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_82'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        // multiple images card use special a,b,c,d versions</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_83'/>
+83
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_83'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        String url;</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_84'/>
+84
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_84'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        String postfix = card.getCollectorIdPostfix();</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_85'/>
+85
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_85'>1</a>
+<span>
+
+1. generateURL : negated conditional &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>        if (postfix.isEmpty()) {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_86'/>
+86
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_86'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>            url = singleLinks.get(card.getSet() + &#34;/&#34; + card.getName());</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_87'/>
+87
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_87'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        } else {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_88'/>
+88
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_88'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>            url = singleLinks.get(card.getSet() + &#34;/&#34; + card.getName() + &#34;-&#34; + postfix);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_89'/>
+89
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_89'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_90'/>
+90
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_90'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_91'/>
+91
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_91'>1</a>
+<span>
+
+1. generateURL : negated conditional &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>        if (url != null) {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_92'/>
+92
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_92'>1</a>
+<span>
+
+1. generateURL : mutated return of Object value for org/mage/plugins/card/dl/sources/GrabbagImageSource::generateURL to ( if (x != null) null else throw new RuntimeException ) &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>            return getSourceName(card, url) + url;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_93'/>
+93
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_93'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_94'/>
+94
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_94'>1</a>
+<span>
+
+1. generateURL : mutated return of Object value for org/mage/plugins/card/dl/sources/GrabbagImageSource::generateURL to ( if (x != null) null else throw new RuntimeException ) &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>        return null;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_95'/>
+95
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_95'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_96'/>
+96
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_96'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_97'/>
+97
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_97'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>    HashMap&#60;String, String&#62; singleLinks = null;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_98'/>
+98
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_98'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_99'/>
+99
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_99'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private void setupLinks() {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_100'/>
+100
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_100'>1</a>
+<span>
+
+1. setupLinks : negated conditional &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>        if (singleLinks != null) {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_101'/>
+101
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_101'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>            return;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_102'/>
+102
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_102'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_103'/>
+103
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_103'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks = new HashMap&#60;&#62;();</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_104'/>
+104
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_104'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;PTC/Arbiter of the Ideal&#34;, &#34;MTG/BNG/en/promo/ArbiterOfTheIdeal.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_105'/>
+105
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_105'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;PTC/Courser of Kruphix&#34;, &#34;MTG/BNG/en/promo/CourserOfKruphix.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_106'/>
+106
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_106'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;PTC/Eater of Hope&#34;, &#34;MTG/BNG/en/promo/EaterOfHope.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_107'/>
+107
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_107'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;PTC/Fated Return&#34;, &#34;MTG/BNG/en/promo/FatedReturn.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_108'/>
+108
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_108'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;PTC/Forgestoker Dragon&#34;, &#34;MTG/BNG/en/promo/ForgestokerDragon.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_109'/>
+109
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_109'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;PTC/Nessian Wilds Ravager&#34;, &#34;MTG/BNG/en/promo/NessianWildsRavager.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_110'/>
+110
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_110'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;PTC/Pain Seer&#34;, &#34;MTG/BNG/en/promo/PainSeer.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_111'/>
+111
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_111'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;PTC/Silent Sentinel&#34;, &#34;MTG/BNG/en/promo/SilentSentinel.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_112'/>
+112
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_112'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;PTC/Tromokratis&#34;, &#34;MTG/BNG/en/promo/Tromokratis.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_113'/>
+113
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_113'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_114'/>
+114
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_114'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/AAT-1&#34;, &#34;CqmDY8V.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_115'/>
+115
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_115'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Acklay of the Arena&#34;, &#34;ESVRm6F.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_116'/>
+116
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_116'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Acquire Target&#34;, &#34;FOskB4q.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_117'/>
+117
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_117'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Admiral Ackbar&#34;, &#34;JdGpP3p.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_118'/>
+118
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_118'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Adroit Hateflayer&#34;, &#34;0gSIQ4K.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_119'/>
+119
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_119'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Anakin Skywalker&#34;, &#34;3pGvZZEg.png&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_120'/>
+120
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_120'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Ancient Holocron&#34;, &#34;fH2dVP5.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_121'/>
+121
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_121'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Aqualish Bounty Hunter&#34;, &#34;Wm2aKa2.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_122'/>
+122
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_122'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Armed Protocol Droid&#34;, &#34;mywdKgN.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_123'/>
+123
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_123'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Arrest&#34;, &#34;VXLnNUo.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_124'/>
+124
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_124'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Asajj Ventress&#34;, &#34;rOXSIwO.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_125'/>
+125
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_125'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/AT-ST&#34;, &#34;9sMcy3C.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_126'/>
+126
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_126'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Aurra Sing, Bane of Jedi&#34;, &#34;VgbndqZ.png&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_127'/>
+127
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_127'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/A-Wing&#34;, &#34;4TaYoRO.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_128'/>
+128
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_128'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Bantha Herd&#34;, &#34;9rLPE2a.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_129'/>
+129
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_129'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Bathe in Bacta&#34;, &#34;sPynQAZ.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_130'/>
+130
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_130'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Battle Tactics&#34;, &#34;zoon1p4.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_131'/>
+131
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_131'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Bib Fortuna&#34;, &#34;AqAmOEw.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_132'/>
+132
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_132'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Black Market Dealer&#34;, &#34;EJpIxna.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_133'/>
+133
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_133'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Blind Worship&#34;, &#34;GonJyeF.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_134'/>
+134
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_134'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Boba Fett&#34;, &#34;XE83Ks7.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_135'/>
+135
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_135'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Bossk&#34;, &#34;m91vUdJ.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_136'/>
+136
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_136'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Bounty Collector&#34;, &#34;GHHxvb0.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_137'/>
+137
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_137'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Bounty Sniper&#34;, &#34;ANTNrsS.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_138'/>
+138
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_138'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Bounty Spotter&#34;, &#34;aB6LAZs.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_139'/>
+139
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_139'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Bull Rancor&#34;, &#34;eG4mJ7o.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_140'/>
+140
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_140'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/C-3PO and R2D2&#34;, &#34;RTv4ikx.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_141'/>
+141
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_141'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Cantina Band&#34;, &#34;PqMQP0o.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_142'/>
+142
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_142'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Capture&#34;, &#34;jxoTOyC.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_143'/>
+143
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_143'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Carbonite Chamber&#34;, &#34;rqEr1gm.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_144'/>
+144
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_144'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Chewbacca&#34;, &#34;D3D5T42.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_145'/>
+145
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_145'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Chief Chirpa&#34;, &#34;Gx3hLsg.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_146'/>
+146
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_146'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Cloaking Device&#34;, &#34;Vtz1NZU.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_147'/>
+147
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_147'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Commander Cody&#34;, &#34;9PGV2pV.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_148'/>
+148
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_148'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Condemn&#34;, &#34;36yejT2.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_149'/>
+149
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_149'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Corellian Corvette&#34;, &#34;j8uPQDY.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_150'/>
+150
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_150'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Crossfire&#34;, &#34;Iz9OdPh.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_151'/>
+151
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_151'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Cruelty of the Sith&#34;, &#34;q3WIYAt.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_152'/>
+152
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_152'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Cunning Abduction&#34;, &#34;CueTNo7.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_153'/>
+153
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_153'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Dagobah Maw Slug&#34;, &#34;SqmdUMp.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_154'/>
+154
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_154'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Dark Apprenticeship&#34;, &#34;yf5MthH.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_155'/>
+155
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_155'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Dark Decision&#34;, &#34;2HB5lYN.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_156'/>
+156
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_156'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Dark Trooper&#34;, &#34;atKdUTA.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_157'/>
+157
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_157'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Darth Maul&#34;, &#34;EwC1e1Q.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_158'/>
+158
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_158'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Darth Sidious, Sith Lord&#34;, &#34;UYk3KnH.png&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_159'/>
+159
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_159'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Darth Tyranus, Count of Serenno&#34;, &#34;AXUfNuO.png&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_160'/>
+160
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_160'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Darth Vader&#34;, &#34;3pGvZZE.png&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_161'/>
+161
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_161'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Death Trooper&#34;, &#34;j7lWmPJ.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_162'/>
+162
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_162'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Deploy The Troops&#34;, &#34;QtcN0qV.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_163'/>
+163
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_163'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Doom Blade&#34;, &#34;cSuxWUr.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_164'/>
+164
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_164'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Droid Commando&#34;, &#34;HkKiaBQ.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_165'/>
+165
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_165'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Droid Factory&#34;, &#34;34L3ykD.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_166'/>
+166
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_166'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Droid Foundry&#34;, &#34;qYijxSk.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_167'/>
+167
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_167'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Droideka&#34;, &#34;BXN7t1i.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_168'/>
+168
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_168'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Drone Holocron&#34;, &#34;cHzqK4v.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_169'/>
+169
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_169'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Echo Base Commando&#34;, &#34;AdLjV4Y.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_170'/>
+170
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_170'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/EMP Blast&#34;, &#34;Y0JWgRO.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_171'/>
+171
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_171'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Escape Pod&#34;, &#34;vj8gQ1u.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_172'/>
+172
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_172'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Ewok Ambush&#34;, &#34;219aufH.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_173'/>
+173
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_173'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Ewok Firedancers&#34;, &#34;DFAB3h4.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_174'/>
+174
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_174'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Ewok Village&#34;, &#34;rgQevhZ.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_175'/>
+175
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_175'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Exogorth&#34;, &#34;cS6fq3u.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_176'/>
+176
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_176'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Ferocity of the Underworld&#34;, &#34;lTqtVab.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_177'/>
+177
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_177'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Flames of Remembrance&#34;, &#34;WAKhi9i.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_178'/>
+178
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_178'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Force Choke&#34;, &#34;Uu1QUf9.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_179'/>
+179
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_179'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Force Denial&#34;, &#34;qwYGiUg.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_180'/>
+180
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_180'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Force Drain&#34;, &#34;prHdDXa.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_181'/>
+181
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_181'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Force Healing&#34;, &#34;kDGRFoj.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_182'/>
+182
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_182'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Force Lightning&#34;, &#34;DhAE9lZ.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_183'/>
+183
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_183'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Force Mastery&#34;, &#34;XPCWaP8.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_184'/>
+184
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_184'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Force Pull&#34;, &#34;rWWfkhX.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_185'/>
+185
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_185'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Force Push&#34;, &#34;aN8n4sk.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_186'/>
+186
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_186'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Force Reflex&#34;, &#34;RIlvXTz.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_187'/>
+187
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_187'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Force Scream&#34;, &#34;EsagOnR.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_188'/>
+188
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_188'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Force Spark&#34;, &#34;14MOM1y.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_189'/>
+189
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_189'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Forest-a&#34;, &#34;LIpeeP9.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_190'/>
+190
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_190'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Forest-b&#34;, &#34;jKwDwH7.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_191'/>
+191
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_191'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Forest-c&#34;, &#34;CVb3582.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_192'/>
+192
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_192'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Forest-d&#34;, &#34;q09fMW0.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_193'/>
+193
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_193'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Fulfill Contract&#34;, &#34;FtLMpHK.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_194'/>
+194
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_194'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Gamorrean Prison Guard&#34;, &#34;4dgOMPA.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_195'/>
+195
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_195'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/General Grievous&#34;, &#34;tRLM8Hz.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_196'/>
+196
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_196'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Gifted Initiate&#34;, &#34;NDePdLv.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_197'/>
+197
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_197'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Grand Moff Tarkin&#34;, &#34;QXq1V40.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_198'/>
+198
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_198'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Greater Krayt Dragon&#34;, &#34;dzIiXXg.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_199'/>
+199
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_199'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Greedo&#34;, &#34;IRKwsX0.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_200'/>
+200
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_200'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Gundark&#34;, &#34;zLxfLM8.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_201'/>
+201
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_201'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Gungan Captain&#34;, &#34;1Q4DNWh.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_202'/>
+202
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_202'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Han Solo&#34;, &#34;G0Awota.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_203'/>
+203
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_203'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Hazard Trooper&#34;, &#34;ZOutamG.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_204'/>
+204
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_204'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Head Hunting&#34;, &#34;7OT1bGZ.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_205'/>
+205
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_205'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Heavy Trooper&#34;, &#34;HhZWs2N.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_206'/>
+206
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_206'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Hot Pursuit&#34;, &#34;ih1GT5Z.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_207'/>
+207
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_207'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Hungry Dragonsnake&#34;, &#34;23v7RTm.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_208'/>
+208
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_208'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Hunt to Extinction&#34;, &#34;3eJyfzZ.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_209'/>
+209
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_209'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Hutt Crime Lord&#34;, &#34;NAzK7Hp.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_210'/>
+210
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_210'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Hutt Palace&#34;, &#34;HEb2JN5.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_211'/>
+211
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_211'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/IG-88B&#34;, &#34;YZUZJC8.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_212'/>
+212
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_212'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Images of the Past&#34;, &#34;sOXEk4Q.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_213'/>
+213
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_213'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Imperial Gunner&#34;, &#34;9KpZ8AX.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_214'/>
+214
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_214'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Impulsive Wager&#34;, &#34;lLutRRs.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_215'/>
+215
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_215'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Insatiable Rakghoul&#34;, &#34;IYqBnTK.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_216'/>
+216
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_216'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Interrogation&#34;, &#34;kI2bIbo.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_217'/>
+217
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_217'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Ion Cannon&#34;, &#34;Tb546IK.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_218'/>
+218
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_218'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Iron Fist of the Empire&#34;, &#34;9Ui7NRn.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_219'/>
+219
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_219'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Island-a&#34;, &#34;GxITXBO.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_220'/>
+220
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_220'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Island-b&#34;, &#34;vKdg4fG.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_221'/>
+221
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_221'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Island-c&#34;, &#34;NPMxIew.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_222'/>
+222
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_222'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Island-d&#34;, &#34;cnqFMa6.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_223'/>
+223
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_223'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Ithorian Initiate&#34;, &#34;2RYpp5o.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_224'/>
+224
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_224'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Jabba the Hutt&#34;, &#34;QMz0sKa.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_225'/>
+225
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_225'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Jango Fett&#34;, &#34;nEnspQP.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_226'/>
+226
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_226'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Jar Jar Binks&#34;, &#34;GCnx72b.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_227'/>
+227
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_227'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Jar&#39;Kai Battle Stance&#34;, &#34;GLavgj7.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_228'/>
+228
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_228'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Jedi Battle Healer&#34;, &#34;RyIJON5.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_229'/>
+229
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_229'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Jedi Battle Mage&#34;, &#34;V9qHRGq.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_230'/>
+230
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_230'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Jedi Battle Sage&#34;, &#34;sZVlGWE.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_231'/>
+231
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_231'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Jedi Enclave&#34;, &#34;FlibBhx.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_232'/>
+232
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_232'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Jedi Holocron&#34;, &#34;ojbt2av.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_233'/>
+233
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_233'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Jedi Inquirer&#34;, &#34;ghFQA76.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_234'/>
+234
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_234'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Jedi Instructor&#34;, &#34;IwEpVkz.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_235'/>
+235
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_235'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Jedi Knight&#34;, &#34;VXNHpZs.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_236'/>
+236
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_236'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Jedi Mind Trick&#34;, &#34;aaVfgSA.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_237'/>
+237
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_237'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Jedi Sentinel&#34;, &#34;cae3O1s.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_238'/>
+238
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_238'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Jedi Starfighter&#34;, &#34;Ta20jjD.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_239'/>
+239
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_239'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Jedi Temple&#34;, &#34;ZkOUJnM.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_240'/>
+240
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_240'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Jedi Training&#34;, &#34;7L1LWie.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_241'/>
+241
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_241'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Jump Trooper&#34;, &#34;62Pg5r4.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_242'/>
+242
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_242'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Jungle Village&#34;, &#34;3a1KN8u.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_243'/>
+243
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_243'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Kamino Cloning Facility&#34;, &#34;kwBudvf.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_244'/>
+244
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_244'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Ki-Adi-Mundi&#34;, &#34;atqNF3H.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_245'/>
+245
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_245'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/LAAT Gunship&#34;, &#34;DEMXleY.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_246'/>
+246
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_246'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Lando Calrissian&#34;, &#34;jcoTjGV.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_247'/>
+247
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_247'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Legacy of the Beloved&#34;, &#34;Y0ObvQg.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_248'/>
+248
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_248'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Lightning Bolt&#34;, &#34;XSNGQYi.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_249'/>
+249
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_249'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Lightsaber&#34;, &#34;YrpWygk.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_250'/>
+250
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_250'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Loyal Tauntaun&#34;, &#34;JKDV2WK.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_251'/>
+251
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_251'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Luke Skywalker&#34;, &#34;9worW6q.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_252'/>
+252
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_252'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Mace Windu&#34;, &#34;rmTuBGT.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_253'/>
+253
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_253'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Maintenance Droid&#34;, &#34;A66IIC1.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_254'/>
+254
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_254'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Maintenance Hangar&#34;, &#34;DzCYnH3.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_255'/>
+255
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_255'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Mantellian Savrip&#34;, &#34;a9JIDEM.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_256'/>
+256
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_256'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/March of the Droids&#34;, &#34;A4HIQ5V.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_257'/>
+257
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_257'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Massiff Swarm&#34;, &#34;0qRPfbC.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_258'/>
+258
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_258'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Might of the Wild&#34;, &#34;eNXOdxp.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_259'/>
+259
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_259'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Millennium Falcon&#34;, &#34;aZ6sIn2.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_260'/>
+260
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_260'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Miraculous Recovery&#34;, &#34;DH6Cei8.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_261'/>
+261
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_261'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Moisture Farm&#34;, &#34;S6kJHtL.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_262'/>
+262
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_262'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Mon Calamari Cruiser&#34;, &#34;ZHdTV7p.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_263'/>
+263
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_263'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Mon Calamari Initiate&#34;, &#34;GBuXdGP.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_264'/>
+264
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_264'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Mountain-a&#34;, &#34;MCii4g1.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_265'/>
+265
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_265'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Mountain-b&#34;, &#34;Tb0ic31.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_266'/>
+266
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_266'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Mountain-c&#34;, &#34;wqXTdsC.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_267'/>
+267
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_267'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Mountain-d&#34;, &#34;9oBNCHk.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_268'/>
+268
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_268'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/N-1 Starfighter&#34;, &#34;UH3qd7x.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_269'/>
+269
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_269'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Nebulon-B Frigate&#34;, &#34;IwEpVkz.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_270'/>
+270
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_270'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Neophyte Hateflayer&#34;, &#34;Has2AIW.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_271'/>
+271
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_271'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Nerf Herder&#34;, &#34;VUX0LHV.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_272'/>
+272
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_272'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Nexu Stalker&#34;, &#34;E1xxHe1.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_273'/>
+273
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_273'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Nightspider&#34;, &#34;H1po0uV.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_274'/>
+274
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_274'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/No Contest&#34;, &#34;6SwC9ri.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_275'/>
+275
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_275'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Novice Bounty Hunter&#34;, &#34;WfNSsLY.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_276'/>
+276
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_276'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Nute Gunray&#34;, &#34;UZg12DD.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_277'/>
+277
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_277'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Obi-Wan Kenobi&#34;, &#34;BHkbjdL.png&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_278'/>
+278
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_278'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Open Season&#34;, &#34;E4iM90K.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_279'/>
+279
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_279'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Orbital Bombardment&#34;, &#34;Ov1mB3A.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_280'/>
+280
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_280'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Order 66&#34;, &#34;jZituQQ.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_281'/>
+281
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_281'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Ortolan Keyboardist&#34;, &#34;dYDgEUB.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_282'/>
+282
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_282'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Outer Rim Slaver&#34;, &#34;xq8ozqq.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_283'/>
+283
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_283'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Outlaw Holocron&#34;, &#34;mWbyX78.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_284'/>
+284
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_284'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Personal Energy Shield&#34;, &#34;v6TGLne.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_285'/>
+285
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_285'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Plains-a&#34;, &#34;HgXaAKh.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_286'/>
+286
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_286'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Plains-b&#34;, &#34;Y0i7MBh.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_287'/>
+287
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_287'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Plains-c&#34;, &#34;4grXQVd.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_288'/>
+288
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_288'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Plains-d&#34;, &#34;kTmN8MM.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_289'/>
+289
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_289'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Plo Koon&#34;, &#34;dDNi8CV.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_290'/>
+290
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_290'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Precipice of Mortis&#34;, &#34;TRAPT86.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_291'/>
+291
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_291'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Predator&#39;s Strike&#34;, &#34;pcBoUny.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_292'/>
+292
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_292'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Preordain&#34;, &#34;u8nSNQW.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_293'/>
+293
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_293'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Primal Instinct&#34;, &#34;bInouYH.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_294'/>
+294
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_294'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Princess Leia&#34;, &#34;pnHyPWg.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_295'/>
+295
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_295'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Probe Droid&#34;, &#34;0r84uUM.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_296'/>
+296
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_296'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Qui-Gon Jinn&#34;, &#34;7DdumG2.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_297'/>
+297
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_297'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Raging Reek&#34;, &#34;9maXaMR.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_298'/>
+298
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_298'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Rallying Fire&#34;, &#34;wtaTlhd.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_299'/>
+299
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_299'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Ravenous Wampa&#34;, &#34;rHDaKDD.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_300'/>
+300
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_300'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Regression&#34;, &#34;j5z0TOE.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_301'/>
+301
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_301'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Republic Frigate&#34;, &#34;LzNpjxP.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_302'/>
+302
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_302'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Repurpose&#34;, &#34;BvRMy3f.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_303'/>
+303
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_303'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Revenge&#34;, &#34;xkKzMRX.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_304'/>
+304
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_304'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Riding Ronto&#34;, &#34;xECBi7G.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_305'/>
+305
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_305'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Rocket Trooper&#34;, &#34;94wUTH5.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_306'/>
+306
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_306'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Rogue&#39;s Passage&#34;, &#34;UunpJPZ.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_307'/>
+307
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_307'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Rule of two&#34;, &#34;wNqZWLJ.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_308'/>
+308
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_308'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Rumination&#34;, &#34;nSD3UHQ.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_309'/>
+309
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_309'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Rumor Monger&#34;, &#34;wSN6H6v.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_310'/>
+310
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_310'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Sabacc Game&#34;, &#34;qIcFb3U.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_311'/>
+311
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_311'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Salvage Squad&#34;, &#34;ThYSxmD.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_312'/>
+312
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_312'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Sand Trooper&#34;, &#34;ysfpyL8.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_313'/>
+313
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_313'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Sarlacc Pit&#34;, &#34;N4dcnln.png&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_314'/>
+314
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_314'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Scout the Perimeter&#34;, &#34;2cObUbz.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_315'/>
+315
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_315'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Scout Trooper&#34;, &#34;9RAY4U1.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_316'/>
+316
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_316'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Security Droid&#34;, &#34;dzy8m4v.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_317'/>
+317
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_317'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Senator Bail Organa&#34;, &#34;BRkUuYU.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_318'/>
+318
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_318'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Senator Lott Dod&#34;, &#34;yYQtXZo.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_319'/>
+319
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_319'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Senator Onaconda Farr&#34;, &#34;oPez77z.png&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_320'/>
+320
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_320'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Senator Padm&#233; Amidala&#34;, &#34;287deD9.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_321'/>
+321
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_321'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Senator Passel Argente&#34;, &#34;51qpnaE.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_322'/>
+322
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_322'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Shaak Herd&#34;, &#34;PtnZD0I.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_323'/>
+323
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_323'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Shadow Trooper&#34;, &#34;09NAiGa.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_324'/>
+324
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_324'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Shock Trooper&#34;, &#34;UVNOxMR.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_325'/>
+325
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_325'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Show of Dominance&#34;, &#34;ru2D3Qp.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_326'/>
+326
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_326'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Sith Assassin&#34;, &#34;Nt8WUCj.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_327'/>
+327
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_327'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Sith Citadel&#34;, &#34;bBCbK30.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_328'/>
+328
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_328'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Sith Evoker&#34;, &#34;jwRzCEB.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_329'/>
+329
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_329'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Sith Holocron&#34;, &#34;07Ufx5X.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_330'/>
+330
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_330'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Sith Inquisitor&#34;, &#34;NivI1E5.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_331'/>
+331
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_331'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Sith Lord&#34;, &#34;lWBfQoA.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_332'/>
+332
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_332'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Sith Magic&#34;, &#34;cDPFeve.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_333'/>
+333
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_333'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Sith Manipulator&#34;, &#34;Q7CIvyz.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_334'/>
+334
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_334'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Sith Marauder&#34;, &#34;9zZUSJW.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_335'/>
+335
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_335'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Sith Mindseer&#34;, &#34;Lmps3oO.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_336'/>
+336
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_336'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Sith Ravager&#34;, &#34;nl9Dp41.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_337'/>
+337
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_337'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Sith Ruins&#34;, &#34;oSqiYyO.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_338'/>
+338
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_338'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Sith Sorcerer&#34;, &#34;Pq37iop.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_339'/>
+339
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_339'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Sith Thoughtseeker&#34;, &#34;YzIY1di.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_340'/>
+340
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_340'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Slave I&#34;, &#34;QUGpxlb.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_341'/>
+341
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_341'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Smash to Smithereens&#34;, &#34;UlzDZWp.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_342'/>
+342
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_342'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Snow Trooper&#34;, &#34;28Jp5JL.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_343'/>
+343
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_343'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Speeder Trooper&#34;, &#34;BIEnTDL.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_344'/>
+344
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_344'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Star Destroyer&#34;, &#34;DYUMXHZ.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_345'/>
+345
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_345'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Strike Team Commando&#34;, &#34;783ZFsF.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_346'/>
+346
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_346'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Super Battle Droid&#34;, &#34;T8IjrKD.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_347'/>
+347
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_347'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Surprise Maneuver&#34;, &#34;uaAmzz8.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_348'/>
+348
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_348'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Swamp-a&#34;, &#34;kBGj6vk.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_349'/>
+349
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_349'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Swamp-b&#34;, &#34;BLJl2lf.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_350'/>
+350
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_350'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Swamp-c&#34;, &#34;MLH5o2u.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_351'/>
+351
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_351'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Swamp-d&#34;, &#34;Rmrv9tC.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_352'/>
+352
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_352'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Swarm the Skies&#34;, &#34;Ti1McaV.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_353'/>
+353
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_353'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Syndicate Enforcer&#34;, &#34;xZ0g2Sx.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_354'/>
+354
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_354'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Tank Droid&#34;, &#34;N4YyMje.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_355'/>
+355
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_355'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Terentatek Cub&#34;, &#34;nbmBxst.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_356'/>
+356
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_356'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/The Battle of Endor&#34;, &#34;vhL6gdI.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_357'/>
+357
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_357'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/The Battle of Geonosis&#34;, &#34;7Fnr2MD.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_358'/>
+358
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_358'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/The Battle of Hoth&#34;, &#34;wcVJwKP.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_359'/>
+359
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_359'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/The Battle of Naboo&#34;, &#34;aesSN9E.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_360'/>
+360
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_360'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/The Battle of Yavin&#34;, &#34;AtGE49k.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_361'/>
+361
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_361'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/The Death Star&#34;, &#34;2LjSXa9.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_362'/>
+362
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_362'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/TIE Bomber&#34;, &#34;R2l7ZXQ.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_363'/>
+363
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_363'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/TIE Interceptor&#34;, &#34;fYY4PUR.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_364'/>
+364
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_364'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Trade Federation Battleship&#34;, &#34;sKN9Gzv.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_365'/>
+365
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_365'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Tri-Fighter&#34;, &#34;IhwHzqT.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_366'/>
+366
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_366'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Trooper Armor&#34;, &#34;nqnFj9f.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_367'/>
+367
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_367'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Trooper Commando&#34;, &#34;PiAYXJv.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_368'/>
+368
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_368'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Twi&#39;lek Seductress&#34;, &#34;iPhUxUV.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_369'/>
+369
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_369'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Ugnaught Scrap Worker&#34;, &#34;fuuNN3n.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_370'/>
+370
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_370'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Underworld Slums&#34;, &#34;o4CFq3x.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_371'/>
+371
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_371'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Unity of the Droids&#34;, &#34;WFAIRy3.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_372'/>
+372
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_372'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Unruly Sureshot&#34;, &#34;AHymfLc.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_373'/>
+373
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_373'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Vapor Snag&#34;, &#34;8g3q0ny.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_374'/>
+374
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_374'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/V-Wing&#34;, &#34;7eThuU9.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_375'/>
+375
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_375'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Weequay Beastmaster&#34;, &#34;metAs1p.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_376'/>
+376
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_376'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Wild Holocron&#34;, &#34;adw7dFO.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_377'/>
+377
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_377'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Wisdom of the Jedi&#34;, &#34;TgTj2Dd.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_378'/>
+378
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_378'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Womp Rat&#34;, &#34;XKF79Hr.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_379'/>
+379
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_379'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Wookiee Bounty Hunter&#34;, &#34;A76UGTJ.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_380'/>
+380
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_380'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Wookiee Mystic&#34;, &#34;8DCkOVe.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_381'/>
+381
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_381'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Wookiee Raidleader&#34;, &#34;ZZTduL5.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_382'/>
+382
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_382'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/X-Wing&#34;, &#34;AV1LPuZ.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_383'/>
+383
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_383'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Yoda, Jedi Master&#34;, &#34;6arN1Hl.png&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_384'/>
+384
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_384'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Y-Wing&#34;, &#34;aQQ5zwA.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_385'/>
+385
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_385'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Zam Wesell&#34;, &#34;ToG0C1r.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_386'/>
+386
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_386'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        // Emblems</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_387'/>
+387
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_387'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Emblem Obi-Wan Kenobi&#34;, &#34;Qyc10aT.png&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_388'/>
+388
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_388'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Aurra Sing&#34;, &#34;BLWbVJC.png&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_389'/>
+389
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_389'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Yoda&#34;, &#34;zH0sYxg.png&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_390'/>
+390
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_390'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        // Tokens</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_391'/>
+391
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_391'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Ewok&#34;, &#34;N2MvJyr.png&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_392'/>
+392
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_392'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/B-Wing&#34;, &#34;oH62AUD.png&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_393'/>
+393
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_393'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Hunter&#34;, &#34;oJiawFA.png&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_394'/>
+394
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_394'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/TIE Fighter&#34;, &#34;CLOuJ05.png&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_395'/>
+395
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_395'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Trooper&#34;, &#34;2XKqdX5.png&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_396'/>
+396
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_396'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/AT-AT&#34;, &#34;Tv5b7h1.png&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_397'/>
+397
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_397'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Rebel&#34;, &#34;pVoShnF.png&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_398'/>
+398
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_398'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Royal Guard&#34;, &#34;9tqE8vL.png&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_399'/>
+399
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_399'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Tusken Raider&#34;, &#34;gPMiSmP.png&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_400'/>
+400
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_400'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        singleLinks.put(&#34;SWS/Droid&#34;, &#34;4PRrWFF.png&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_401'/>
+401
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_401'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_402'/>
+402
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_402'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_403'/>
+403
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_403'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_404'/>
+404
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_404'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public String generateTokenUrl(CardDownloadData card) throws IOException {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_405'/>
+405
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_405'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        try {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_406'/>
+406
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_406'>1</a>
+<span>
+
+1. generateTokenUrl : mutated return of Object value for org/mage/plugins/card/dl/sources/GrabbagImageSource::generateTokenUrl to ( if (x != null) null else throw new RuntimeException ) &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>            return generateURL(card);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_407'/>
+407
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_407'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        } catch (Exception ex) {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_408'/>
+408
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_408'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>            java.util.logging.Logger.getLogger(GrabbagImageSource.class.getName()).log(Level.SEVERE, null, ex);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_409'/>
+409
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_409'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_410'/>
+410
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_410'>1</a>
+<span>
+
+1. generateTokenUrl : mutated return of Object value for org/mage/plugins/card/dl/sources/GrabbagImageSource::generateTokenUrl to ( if (x != null) null else throw new RuntimeException ) &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>        return null;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_411'/>
+411
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_411'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_412'/>
+412
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_412'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_413'/>
+413
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_413'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_414'/>
+414
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_414'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public int getTotalImages() {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_415'/>
+415
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_415'>1</a>
+<span>
+
+1. getTotalImages : negated conditional &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>        if (singleLinks == null) {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_416'/>
+416
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_416'>1</a>
+<span>
+
+1. getTotalImages : removed call to org/mage/plugins/card/dl/sources/GrabbagImageSource::setupLinks &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>            setupLinks();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_417'/>
+417
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_417'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_418'/>
+418
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_418'>1</a>
+<span>
+
+1. getTotalImages : negated conditional &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>        if (singleLinks != null) {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_419'/>
+419
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_419'>1</a>
+<span>
+
+1. getTotalImages : replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>            return singleLinks.size();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_420'/>
+420
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_420'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_421'/>
+421
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_421'>1</a>
+<span>
+
+1. getTotalImages : replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>        return -1;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_422'/>
+422
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_422'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_423'/>
+423
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_423'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_424'/>
+424
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_424'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_425'/>
+425
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_425'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public boolean isTokenSource() {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_426'/>
+426
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_426'>1</a>
+<span>
+
+1. isTokenSource : replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>        return true;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_427'/>
+427
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_427'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_428'/>
+428
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_428'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_429'/>
+429
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_429'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private String getSourceName(CardDownloadData card, String httpImageUrl) {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_430'/>
+430
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_430'>1</a>
+<span>
+
+1. getSourceName : negated conditional &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>        if (card.getSet().equals(&#34;MTG&#34;)) {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_431'/>
+431
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_431'>1</a>
+<span>
+
+1. getSourceName : mutated return of Object value for org/mage/plugins/card/dl/sources/GrabbagImageSource::getSourceName to ( if (x != null) null else throw new RuntimeException ) &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>            return &#34;http://static.starcitygames.com/sales/cardscans/&#34;;</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_432'/>
+432
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_432'>1</a>
+<span>
+
+1. getSourceName : negated conditional &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>        } else if (card.getSet().equals(&#34;SWS&#34;)) {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_433'/>
+433
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_433'>1</a>
+<span>
+
+1. getSourceName : mutated return of Object value for org/mage/plugins/card/dl/sources/GrabbagImageSource::getSourceName to ( if (x != null) null else throw new RuntimeException ) &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>            return &#34;http://i.imgur.com/&#34;;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_434'/>
+434
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_434'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        } else {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_435'/>
+435
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_435'>1</a>
+<span>
+
+1. getSourceName : mutated return of Object value for org/mage/plugins/card/dl/sources/GrabbagImageSource::getSourceName to ( if (x != null) null else throw new RuntimeException ) &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>            return &#34;http://magiccards.info/scans/en/&#34;;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_436'/>
+436
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_436'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_437'/>
+437
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_437'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_438'/>
+438
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_438'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_439'/>
+439
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_439'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_440'/>
+440
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_440'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public ArrayList&#60;String&#62; getSupportedSets() {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_441'/>
+441
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_441'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        ArrayList&#60;String&#62; supportedSetsCopy = new ArrayList&#60;&#62;();</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_442'/>
+442
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_442'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        supportedSetsCopy.addAll(supportedSets);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_443'/>
+443
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_443'>1</a>
+<span>
+
+1. getSupportedSets : mutated return of Object value for org/mage/plugins/card/dl/sources/GrabbagImageSource::getSupportedSets to ( if (x != null) null else throw new RuntimeException ) &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>        return supportedSetsCopy;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_444'/>
+444
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_444'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_445'/>
+445
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_445'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_446'/>
+446
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_446'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_447'/>
+447
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_447'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public void doPause(String httpImageUrl) {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_448'/>
+448
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_448'>1</a>
+<span>
+
+1. doPause : negated conditional &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>        if (!httpImageUrl.startsWith(&#34;/MTG&#34;)) {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_449'/>
+449
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_449'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            try {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_450'/>
+450
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_450'>1</a>
+<span>
+
+1. doPause : removed call to java/util/concurrent/TimeUnit::sleep &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>                TimeUnit.SECONDS.sleep(2);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_451'/>
+451
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_451'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>            } catch (InterruptedException ex) {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_452'/>
+452
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_452'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>            }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_453'/>
+453
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_453'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_454'/>
+454
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_454'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_455'/>
+455
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_455'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_456'/>
+456
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_456'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_457'/>
+457
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_457'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public boolean isImageProvided(String setCode, String cardName) {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_458'/>
+458
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_458'>1</a>
+<span>
+
+1. isImageProvided : negated conditional &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>        if (singleLinks == null) {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_459'/>
+459
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_459'>1</a>
+<span>
+
+1. isImageProvided : removed call to org/mage/plugins/card/dl/sources/GrabbagImageSource::setupLinks &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>            setupLinks();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_460'/>
+460
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_460'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_461'/>
+461
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_461'>3</a>
+<span>
+
+1. isImageProvided : negated conditional &rarr; NO_COVERAGE<br/>
+
+2. isImageProvided : negated conditional &rarr; NO_COVERAGE<br/>
+
+3. isImageProvided : replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>        return singleLinks.containsKey(setCode + &#34;/&#34; + cardName) || singleLinks.containsKey(setCode + &#34;/&#34; + cardName + &#34;-a&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_462'/>
+462
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_462'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_463'/>
+463
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_463'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_464'/>
+464
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_464'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_465'/>
+465
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_465'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public boolean isSetSupportedComplete(String setCode) {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_466'/>
+466
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_466'>1</a>
+<span>
+
+1. isSetSupportedComplete : replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>        return false;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_467'/>
+467
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_467'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_468'/>
+468
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_468'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2519eb7d_469'/>
+469
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_469'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2519eb7d_58'>58</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_58'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getSourceName<br/><b>Killed by : </b>none</span></span> mutated return of Object value for org/mage/plugins/card/dl/sources/GrabbagImageSource::getSourceName to ( if (x != null) null else throw new RuntimeException ) &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2519eb7d_63'>63</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_63'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getAverageSize<br/><b>Killed by : </b>none</span></span> replaced return of float value with -(x + 1) for org/mage/plugins/card/dl/sources/GrabbagImageSource::getAverageSize &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2519eb7d_68'>68</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_68'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getNextHttpImageUrl<br/><b>Killed by : </b>none</span></span> mutated return of Object value for org/mage/plugins/card/dl/sources/GrabbagImageSource::getNextHttpImageUrl to ( if (x != null) null else throw new RuntimeException ) &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2519eb7d_73'>73</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_73'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getFileForHttpImage<br/><b>Killed by : </b>none</span></span> mutated return of Object value for org/mage/plugins/card/dl/sources/GrabbagImageSource::getFileForHttpImage to ( if (x != null) null else throw new RuntimeException ) &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2519eb7d_78'>78</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_78'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>generateURL<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2519eb7d_79'>79</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_79'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>generateURL<br/><b>Killed by : </b>none</span></span> removed call to org/mage/plugins/card/dl/sources/GrabbagImageSource::setupLinks &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2519eb7d_85'>85</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_85'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>generateURL<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2519eb7d_91'>91</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_91'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>generateURL<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2519eb7d_92'>92</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_92'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>generateURL<br/><b>Killed by : </b>none</span></span> mutated return of Object value for org/mage/plugins/card/dl/sources/GrabbagImageSource::generateURL to ( if (x != null) null else throw new RuntimeException ) &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2519eb7d_94'>94</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_94'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>generateURL<br/><b>Killed by : </b>none</span></span> mutated return of Object value for org/mage/plugins/card/dl/sources/GrabbagImageSource::generateURL to ( if (x != null) null else throw new RuntimeException ) &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2519eb7d_100'>100</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_100'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>setupLinks<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2519eb7d_406'>406</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_406'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>generateTokenUrl<br/><b>Killed by : </b>none</span></span> mutated return of Object value for org/mage/plugins/card/dl/sources/GrabbagImageSource::generateTokenUrl to ( if (x != null) null else throw new RuntimeException ) &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2519eb7d_410'>410</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_410'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>generateTokenUrl<br/><b>Killed by : </b>none</span></span> mutated return of Object value for org/mage/plugins/card/dl/sources/GrabbagImageSource::generateTokenUrl to ( if (x != null) null else throw new RuntimeException ) &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2519eb7d_415'>415</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_415'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getTotalImages<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2519eb7d_416'>416</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_416'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getTotalImages<br/><b>Killed by : </b>none</span></span> removed call to org/mage/plugins/card/dl/sources/GrabbagImageSource::setupLinks &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2519eb7d_418'>418</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_418'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getTotalImages<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2519eb7d_419'>419</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_419'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getTotalImages<br/><b>Killed by : </b>none</span></span> replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2519eb7d_421'>421</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_421'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getTotalImages<br/><b>Killed by : </b>none</span></span> replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2519eb7d_426'>426</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_426'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isTokenSource<br/><b>Killed by : </b>none</span></span> replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2519eb7d_430'>430</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_430'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getSourceName<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2519eb7d_431'>431</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_431'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getSourceName<br/><b>Killed by : </b>none</span></span> mutated return of Object value for org/mage/plugins/card/dl/sources/GrabbagImageSource::getSourceName to ( if (x != null) null else throw new RuntimeException ) &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2519eb7d_432'>432</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_432'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getSourceName<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2519eb7d_433'>433</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_433'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getSourceName<br/><b>Killed by : </b>none</span></span> mutated return of Object value for org/mage/plugins/card/dl/sources/GrabbagImageSource::getSourceName to ( if (x != null) null else throw new RuntimeException ) &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2519eb7d_435'>435</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_435'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getSourceName<br/><b>Killed by : </b>none</span></span> mutated return of Object value for org/mage/plugins/card/dl/sources/GrabbagImageSource::getSourceName to ( if (x != null) null else throw new RuntimeException ) &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2519eb7d_443'>443</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_443'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getSupportedSets<br/><b>Killed by : </b>none</span></span> mutated return of Object value for org/mage/plugins/card/dl/sources/GrabbagImageSource::getSupportedSets to ( if (x != null) null else throw new RuntimeException ) &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2519eb7d_448'>448</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_448'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>doPause<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2519eb7d_450'>450</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_450'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>doPause<br/><b>Killed by : </b>none</span></span> removed call to java/util/concurrent/TimeUnit::sleep &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2519eb7d_458'>458</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_458'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isImageProvided<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2519eb7d_459'>459</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_459'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isImageProvided<br/><b>Killed by : </b>none</span></span> removed call to org/mage/plugins/card/dl/sources/GrabbagImageSource::setupLinks &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2519eb7d_461'>461</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_461'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isImageProvided<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>isImageProvided<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>isImageProvided<br/><b>Killed by : </b>none</span></span> replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2519eb7d_466'>466</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2519eb7d_466'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isSetSupportedComplete<br/><b>Killed by : </b>none</span></span> replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+
+<li class='mutator'>INCREMENTS_MUTATOR</li>
+
+<li class='mutator'>VOID_METHOD_CALL_MUTATOR</li>
+
+<li class='mutator'>RETURN_VALS_MUTATOR</li>
+
+<li class='mutator'>MATH_MUTATOR</li>
+
+<li class='mutator'>NEGATE_CONDITIONALS_MUTATOR</li>
+
+<li class='mutator'>INVERT_NEGS_MUTATOR</li>
+
+<li class='mutator'>CONDITIONALS_BOUNDARY_MUTATOR</li>
+
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+</ul>
+
+<br/>
+
+Report generated by <a href='http://pitest.org'>PIT</a> 1.4.0
+
+</body>
+</html>

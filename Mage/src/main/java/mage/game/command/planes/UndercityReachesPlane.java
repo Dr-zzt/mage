@@ -27,9 +27,6 @@
  */
 package mage.game.command.planes;
 
-import java.util.ArrayList;
-import java.util.List;
-import static jdk.nashorn.internal.objects.NativeRegExp.source;
 import mage.abilities.Ability;
 import mage.abilities.TriggeredAbilityImpl;
 import mage.abilities.common.ActivateIfConditionActivatedAbility;
@@ -57,6 +54,9 @@ import mage.game.permanent.Permanent;
 import mage.target.Target;
 import mage.target.targetpointer.FixedTarget;
 import mage.watchers.common.PlanarRollWatcher;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *

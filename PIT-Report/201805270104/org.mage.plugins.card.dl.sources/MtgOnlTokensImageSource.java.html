@@ -1,0 +1,5810 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+
+
+<h1>MtgOnlTokensImageSource.java</h1>
+
+<table class="src">
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_1'/>
+1
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_1'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>/*</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_2'/>
+2
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_2'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * Copyright 2010 BetaSteward_at_googlemail.com. All rights reserved.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_3'/>
+3
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_3'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_4'/>
+4
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_4'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * Redistribution and use in source and binary forms, with or without modification, are</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_5'/>
+5
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_5'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * permitted provided that the following conditions are met:</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_6'/>
+6
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_6'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_7'/>
+7
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_7'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *    1. Redistributions of source code must retain the above copyright notice, this list of</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_8'/>
+8
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_8'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *       conditions and the following disclaimer.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_9'/>
+9
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_9'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_10'/>
+10
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_10'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *    2. Redistributions in binary form must reproduce the above copyright notice, this list</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_11'/>
+11
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_11'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *       of conditions and the following disclaimer in the documentation and/or other materials</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_12'/>
+12
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_12'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *       provided with the distribution.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_13'/>
+13
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_13'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_14'/>
+14
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_14'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * THIS SOFTWARE IS PROVIDED BY BetaSteward_at_googlemail.com ``AS IS&#39;&#39; AND ANY EXPRESS OR IMPLIED</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_15'/>
+15
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_15'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_16'/>
+16
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_16'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL BetaSteward_at_googlemail.com OR</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_17'/>
+17
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_17'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_18'/>
+18
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_18'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_19'/>
+19
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_19'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_20'/>
+20
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_20'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_21'/>
+21
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_21'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_22'/>
+22
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_22'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_23'/>
+23
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_23'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_24'/>
+24
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_24'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * The views and conclusions contained in the software and documentation are those of the</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_25'/>
+25
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_25'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * authors and should not be interpreted as representing official policies, either expressed</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_26'/>
+26
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_26'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * or implied, of BetaSteward_at_googlemail.com.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_27'/>
+27
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_27'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_28'/>
+28
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_28'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>package org.mage.plugins.card.dl.sources;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_29'/>
+29
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_29'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_30'/>
+30
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_30'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.io.IOException;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_31'/>
+31
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_31'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.HashMap;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_32'/>
+32
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_32'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import org.apache.log4j.Logger;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_33'/>
+33
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_33'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import org.mage.plugins.card.images.CardDownloadData;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_34'/>
+34
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_34'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_35'/>
+35
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_35'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>/**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_36'/>
+36
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_36'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_37'/>
+37
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_37'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * @author spjspj</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_38'/>
+38
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_38'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> */</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_39'/>
+39
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_39'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>public enum MtgOnlTokensImageSource implements CardImageSource {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_40'/>
+40
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_40'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_41'/>
+41
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_41'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>    instance;</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_42'/>
+42
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_42'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>    private static final Logger logger = Logger.getLogger(MtgOnlTokensImageSource.class);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_43'/>
+43
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_43'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>    private static int maxTimes = 0;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_44'/>
+44
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_44'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_45'/>
+45
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_45'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_46'/>
+46
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_46'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public String getSourceName() {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_47'/>
+47
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_47'>1</a>
+<span>
+
+1. getSourceName : mutated return of Object value for org/mage/plugins/card/dl/sources/MtgOnlTokensImageSource::getSourceName to ( if (x != null) null else throw new RuntimeException ) &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>        return &#34;http://mtg.onl/token-list/tokens/&#34;;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_48'/>
+48
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_48'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_49'/>
+49
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_49'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_50'/>
+50
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_50'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_51'/>
+51
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_51'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public float getAverageSize() {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_52'/>
+52
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_52'>1</a>
+<span>
+
+1. getAverageSize : replaced return of float value with -(x + 1) for org/mage/plugins/card/dl/sources/MtgOnlTokensImageSource::getAverageSize &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>        return 26.7f;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_53'/>
+53
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_53'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_54'/>
+54
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_54'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_55'/>
+55
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_55'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_56'/>
+56
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_56'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public String getNextHttpImageUrl() {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_57'/>
+57
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_57'>1</a>
+<span>
+
+1. getNextHttpImageUrl : negated conditional &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>        if (copyUrlToImage == null) {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_58'/>
+58
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_58'>1</a>
+<span>
+
+1. getNextHttpImageUrl : removed call to org/mage/plugins/card/dl/sources/MtgOnlTokensImageSource::setupLinks &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>            setupLinks();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_59'/>
+59
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_59'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_60'/>
+60
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_60'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_61'/>
+61
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_61'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        for (String key : copyUrlToImageDone.keySet()) {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_62'/>
+62
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_62'>2</a>
+<span>
+
+1. getNextHttpImageUrl : changed conditional boundary &rarr; NO_COVERAGE<br/>
+
+2. getNextHttpImageUrl : negated conditional &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>            if (copyUrlToImageDone.get(key) &#60; maxTimes) {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_63'/>
+63
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_63'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>                copyUrlToImageDone.put(key, maxTimes);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_64'/>
+64
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_64'>1</a>
+<span>
+
+1. getNextHttpImageUrl : mutated return of Object value for org/mage/plugins/card/dl/sources/MtgOnlTokensImageSource::getNextHttpImageUrl to ( if (x != null) null else throw new RuntimeException ) &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>                return key;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_65'/>
+65
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_65'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            }</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_66'/>
+66
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_66'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_67'/>
+67
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_67'>2</a>
+<span>
+
+1. getNextHttpImageUrl : changed conditional boundary &rarr; NO_COVERAGE<br/>
+
+2. getNextHttpImageUrl : negated conditional &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>        if (maxTimes &#60; 2) {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_68'/>
+68
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_68'>1</a>
+<span>
+
+1. getNextHttpImageUrl : Replaced integer addition with subtraction &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>            maxTimes++;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_69'/>
+69
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_69'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_70'/>
+70
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_70'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        for (String key : copyUrlToImageDone.keySet()) {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_71'/>
+71
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_71'>2</a>
+<span>
+
+1. getNextHttpImageUrl : changed conditional boundary &rarr; NO_COVERAGE<br/>
+
+2. getNextHttpImageUrl : negated conditional &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>            if (copyUrlToImageDone.get(key) &#60; maxTimes) {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_72'/>
+72
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_72'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>                copyUrlToImageDone.put(key, maxTimes);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_73'/>
+73
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_73'>1</a>
+<span>
+
+1. getNextHttpImageUrl : mutated return of Object value for org/mage/plugins/card/dl/sources/MtgOnlTokensImageSource::getNextHttpImageUrl to ( if (x != null) null else throw new RuntimeException ) &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>                return key;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_74'/>
+74
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_74'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            }</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_75'/>
+75
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_75'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_76'/>
+76
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_76'>1</a>
+<span>
+
+1. getNextHttpImageUrl : mutated return of Object value for org/mage/plugins/card/dl/sources/MtgOnlTokensImageSource::getNextHttpImageUrl to ( if (x != null) null else throw new RuntimeException ) &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>        return null;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_77'/>
+77
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_77'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_78'/>
+78
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_78'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_79'/>
+79
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_79'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_80'/>
+80
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_80'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public String getFileForHttpImage(String httpImageUrl) {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_81'/>
+81
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_81'>1</a>
+<span>
+
+1. getFileForHttpImage : negated conditional &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>        if (httpImageUrl != null) {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_82'/>
+82
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_82'>1</a>
+<span>
+
+1. getFileForHttpImage : mutated return of Object value for org/mage/plugins/card/dl/sources/MtgOnlTokensImageSource::getFileForHttpImage to ( if (x != null) null else throw new RuntimeException ) &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>            return copyUrlToImage.get(httpImageUrl);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_83'/>
+83
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_83'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_84'/>
+84
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_84'>1</a>
+<span>
+
+1. getFileForHttpImage : mutated return of Object value for org/mage/plugins/card/dl/sources/MtgOnlTokensImageSource::getFileForHttpImage to ( if (x != null) null else throw new RuntimeException ) &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>        return null;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_85'/>
+85
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_85'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_86'/>
+86
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_86'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_87'/>
+87
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_87'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_88'/>
+88
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_88'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public String generateURL(CardDownloadData card) throws Exception {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_89'/>
+89
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_89'>1</a>
+<span>
+
+1. generateURL : mutated return of Object value for org/mage/plugins/card/dl/sources/MtgOnlTokensImageSource::generateURL to ( if (x != null) null else throw new RuntimeException ) &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>        return null;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_90'/>
+90
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_90'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_91'/>
+91
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_91'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_92'/>
+92
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_92'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>    HashMap&#60;String, String&#62; copyUrlToImage = null;</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_93'/>
+93
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_93'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>    HashMap&#60;String, String&#62; copyImageToUrl = null;</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_94'/>
+94
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_94'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>    HashMap&#60;String, Integer&#62; copyUrlToImageDone = null;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_95'/>
+95
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_95'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_96'/>
+96
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_96'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private void setupLinks() {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_97'/>
+97
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_97'>1</a>
+<span>
+
+1. setupLinks : negated conditional &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>        if (copyUrlToImage != null) {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_98'/>
+98
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_98'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>            return;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_99'/>
+99
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_99'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_100'/>
+100
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_100'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage = new HashMap&#60;&#62;();</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_101'/>
+101
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_101'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyImageToUrl = new HashMap&#60;&#62;();</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_102'/>
+102
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_102'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImageDone = new HashMap&#60;&#62;();</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_103'/>
+103
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_103'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Angel_B_3_3.jpg&#34;, &#34;ANGEL.B.ANGEL.CREATURE.3.3.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_104'/>
+104
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_104'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Angel_W_3_3.jpg&#34;, &#34;ANGEL.W.ANGEL.CREATURE.3.3.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_105'/>
+105
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_105'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Angel_W_4_4.jpg&#34;, &#34;ANGEL.W.ANGEL.CREATURE.4.4.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_106'/>
+106
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_106'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Ape_G_2_2.jpg&#34;, &#34;APE.G.APE.CREATURE.2.2.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_107'/>
+107
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_107'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Ape_G_3_3.jpg&#34;, &#34;APE.G.APE.CREATURE.3.3.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_108'/>
+108
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_108'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Ashaya_the_Awoken_World_G_4_4.jpg&#34;, &#34;ASHAYATHEAWOKENWORLD.G.ELEMENTAL.CREATURE.4.4.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_109'/>
+109
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_109'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Assassin_B_1_1.jpg&#34;, &#34;ASSASSIN.B.ASSASSIN.CREATURE.1.1.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_110'/>
+110
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_110'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Assembly-Worker_2_2.jpg&#34;, &#34;ASSEMBLYWORKER..ASSEMBLYWORKER.ARTIFACTCREATURE.2.2.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_111'/>
+111
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_111'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Avatar_W_y_y.jpg&#34;, &#34;AVATAR.W.AVATAR.CREATURE.S.S.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_112'/>
+112
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_112'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Bat_B_1_1.jpg&#34;, &#34;BAT.B.BAT.CREATURE.1.1.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_113'/>
+113
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_113'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Bat_B_1_2.jpg&#34;, &#34;BAT.B.BAT.CREATURE.1.2.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_114'/>
+114
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_114'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Bear_G_2_2.jpg&#34;, &#34;BEAR.G.BEAR.CREATURE.2.2.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_115'/>
+115
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_115'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Bear_G_4_4.jpg&#34;, &#34;BEAR.G.BEAR.CREATURE.4.4.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_116'/>
+116
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_116'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Beast_B_3_3.jpg&#34;, &#34;BEAST.B.BEAST.CREATURE.3.3.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_117'/>
+117
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_117'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Beast_G_3_3.jpg&#34;, &#34;BEAST.G.BEAST.CREATURE.3.3.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_118'/>
+118
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_118'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Beast_G_2_2.jpg&#34;, &#34;BEAST.G.BEAST.CREATURE.2.2.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_119'/>
+119
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_119'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Beast_G_4_4.jpg&#34;, &#34;BEAST.G.BEAST.CREATURE.4.4.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_120'/>
+120
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_120'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Beast_G_5_5.jpg&#34;, &#34;BEAST.G.BEAST.CREATURE.5.5.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_121'/>
+121
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_121'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Beast_RGW_8_8.jpg&#34;, &#34;BEAST.WRG.BEAST.CREATURE.8.8.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_122'/>
+122
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_122'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Bird_Soldier_W_1_1.jpg&#34;, &#34;BIRDSOLDIER.W.BIRD.CREATURE.1.1.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_123'/>
+123
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_123'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Bird_U_1_1.jpg&#34;, &#34;BIRD.U.BIRD.CREATURE.1.1.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_124'/>
+124
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_124'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Bird_U_2_2.jpg&#34;, &#34;BIRD.U.BIRD.CREATURE.2.2.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_125'/>
+125
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_125'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Bird_U_2_2_Enchantment.jpg&#34;, &#34;BIRD.U.BIRD.ENCHANTMENTCREATURE.2.2.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_126'/>
+126
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_126'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Bird_WU_1_1.jpg&#34;, &#34;BIRD.WU.BIRD.CREATURE.1.1.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_127'/>
+127
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_127'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Bird_W_1_1.jpg&#34;, &#34;BIRD.W.BIRD.CREATURE.1.1.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_128'/>
+128
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_128'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Bird_W_3_3.jpg&#34;, &#34;BIRD.W.BIRD.CREATURE.3.3.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_129'/>
+129
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_129'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Bird_W_3_4.jpg&#34;, &#34;BIRD.W.BIRD.CREATURE.3.4.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_130'/>
+130
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_130'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Boar_G_2_2.jpg&#34;, &#34;BOAR.G.BOAR.CREATURE.2.2.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_131'/>
+131
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_131'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Boar_G_3_3.jpg&#34;, &#34;BOAR.G.BOAR.CREATURE.3.3.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_132'/>
+132
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_132'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Butterfly_G_1_1.jpg&#34;, &#34;BUTTERFLY.G.INSECT.CREATURE.1.1.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_133'/>
+133
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_133'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Camarid_U_1_1.jpg&#34;, &#34;CAMARID.U.CAMARID.CREATURE.1.1.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_134'/>
+134
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_134'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Caribou_W_0_1.jpg&#34;, &#34;CARIBOU.W.CARIBOU.CREATURE.0.1.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_135'/>
+135
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_135'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Carnivore_R_3_1.jpg&#34;, &#34;CARNIVORE.R.BEAST.CREATURE.3.1.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_136'/>
+136
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_136'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Cat_B_2_1.jpg&#34;, &#34;CAT.B.CAT.CREATURE.2.1.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_137'/>
+137
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_137'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Cat_G_1_1.jpg&#34;, &#34;CAT.G.CAT.CREATURE.1.1.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_138'/>
+138
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_138'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Cat_R_1_1.jpg&#34;, &#34;CAT.R.CAT.CREATURE.1.1.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_139'/>
+139
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_139'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Cat_Soldier_W_1_1.jpg&#34;, &#34;CATSOLDIER.W.CATSOLDIER.CREATURE.1.1.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_140'/>
+140
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_140'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Cat_W_2_2.jpg&#34;, &#34;CAT.W.CAT.CREATURE.2.2.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_141'/>
+141
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_141'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Cat_Warrior_G_2_2.jpg&#34;, &#34;CATWARRIOR.G.CATWARRIOR.CREATURE.2.2.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_142'/>
+142
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_142'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Centaur_G_3_3.jpg&#34;, &#34;CENTAUR.G.CENTAUR.CREATURE.3.3.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_143'/>
+143
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_143'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Centaur_G_3_3_Enchantment.jpg&#34;, &#34;CENTAUR.G.CENTAUR.ENCHANTMENTCREATURE.3.3.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_144'/>
+144
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_144'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Centaur_G_3_3_protection.jpg&#34;, &#34;CENTAUR.G.CENTAUR.CREATURE.3.3a.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_145'/>
+145
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_145'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Citizen_W_1_1.jpg&#34;, &#34;CITIZEN.W.CITIZEN.CREATURE.1.1.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_146'/>
+146
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_146'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Cleric_WB_1_1.jpg&#34;, &#34;CLERIC.WB.CLERIC.CREATURE.1.1.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_147'/>
+147
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_147'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Cleric_W_2_1.jpg&#34;, &#34;CLERIC.W.CLERIC.CREATUREENCHANTMENT.2.1.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_148'/>
+148
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_148'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Cloud_Sprite_U_1_1.jpg&#34;, &#34;CLOUDSPRITE.U.FAERIE.CREATURE.1.1.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_149'/>
+149
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_149'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Clue.jpg&#34;, &#34;CLUE..CLUE.ARTIFACT.0.0.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_150'/>
+150
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_150'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Construct_1_1.jpg&#34;, &#34;CONSTRUCT..CONSTRUCT.ARTIFACTCREATURE.1.1.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_151'/>
+151
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_151'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Construct_6_12.jpg&#34;, &#34;CONSTRUCT..CONSTRUCT.CREATUREARTIFACT.6.12.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_152'/>
+152
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_152'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Demon_B_5_5.jpg&#34;, &#34;DEMON.B.DEMON.CREATURE.5.5.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_153'/>
+153
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_153'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Demon_B_y_y.jpg&#34;, &#34;DEMON.B.DEMON.CREATURE.S.S.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_154'/>
+154
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_154'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Devil_R_1_1.jpg&#34;, &#34;DEVIL.R.DEVIL.CREATURE.1.1.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_155'/>
+155
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_155'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Djinn_5_5.jpg&#34;, &#34;DJINN..DJINN.ARTIFACTCREATURE.5.5.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_156'/>
+156
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_156'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Djinn_Monk_U_2_2.jpg&#34;, &#34;DJINNMONK.U.DJINNMONK.CREATURE.2.2.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_157'/>
+157
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_157'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Dragon_RG_1_1.jpg&#34;, &#34;DRAGON.RG.DRAGON.CREATURE.1.1.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_158'/>
+158
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_158'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Dragon_R_2_2.jpg&#34;, &#34;DRAGON.R.DRAGON.CREATURE.2.2.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_159'/>
+159
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_159'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Dragon_R_4_4.jpg&#34;, &#34;DRAGON.R.DRAGON.CREATURE.4.4.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_160'/>
+160
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_160'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Dragon_R_5_5.jpg&#34;, &#34;DRAGON.R.DRAGON.CREATURE.5.5.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_161'/>
+161
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_161'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Dragon_R_6_6.jpg&#34;, &#34;DRAGON.R.DRAGON.CREATURE.6.6.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_162'/>
+162
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_162'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Dragon_Spirit_U_5_5.jpg&#34;, &#34;DRAGONSPIRIT.U.DRAGONSPIRIT.CREATURE.5.5.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_163'/>
+163
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_163'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Drake_UG_2_2.jpg&#34;, &#34;DRAKE.UG.DRAKE.CREATURE.2.2.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_164'/>
+164
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_164'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Drake_U_2_2.jpg&#34;, &#34;DRAKE.U.DRAKE.CREATURE.2.2.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_165'/>
+165
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_165'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Eldrazi_10_10.jpg&#34;, &#34;ELDRAZI..ELDRAZI.CREATURE.10.10.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_166'/>
+166
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_166'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Eldrazi_Scion_1_1.jpg&#34;, &#34;ELDRAZISCION..ELDRAZISCION.CREATURE.1.1.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_167'/>
+167
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_167'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Eldrazi_Spawn_0_1.jpg&#34;, &#34;ELDRAZISPAWN..ELDRAZISPAWN.CREATURE.0.1.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_168'/>
+168
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_168'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Elemental_BR_5_5.jpg&#34;, &#34;ELEMENTAL.BR.ELEMENTAL.CREATURE.1.1.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_169'/>
+169
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_169'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Elemental_GW_y_y.jpg&#34;, &#34;ELEMENTAL.WG.ELEMENTAL.CREATURE.S.S.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_170'/>
+170
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_170'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Elemental_G_2_2.jpg&#34;, &#34;ELEMENTAL.G.ELEMENTAL.CREATURE.2.2.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_171'/>
+171
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_171'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Elemental_R_3_1.jpg&#34;, &#34;ELEMENTAL.R.ELEMENTAL.CREATURE.3.1.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_172'/>
+172
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_172'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Elemental_G_4_4.jpg&#34;, &#34;ELEMENTAL.G.ELEMENTAL.CREATURE.4.4.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_173'/>
+173
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_173'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Elemental_G_5_3.jpg&#34;, &#34;ELEMENTAL.G.ELEMENTAL.CREATURE.5.3.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_174'/>
+174
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_174'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Elemental_G_7_7.jpg&#34;, &#34;ELEMENTAL.G.ELEMENTAL.CREATURE.7.7.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_175'/>
+175
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_175'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Elemental_R_7_1.jpg&#34;, &#34;ELEMENTAL.R.ELEMENTAL.CREATURE.7.1.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_176'/>
+176
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_176'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Elemental_Shaman_R_3_1.jpg&#34;, &#34;ELEMENTALSHAMAN.R.ELEMENTALSHAMAN.CREATURE.3.1.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_177'/>
+177
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_177'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Elephant_G_3_3.jpg&#34;, &#34;ELEPHANT.G.ELEPHANT.CREATURE.3.3.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_178'/>
+178
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_178'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Elf_Druid_G_1_1.jpg&#34;, &#34;ELFDRUID.G.ELFDRUID.CREATURE.1.1.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_179'/>
+179
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_179'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Elf_G_1_1.jpg&#34;, &#34;ELFWARRIOR.G.ELFWARRIOR.CREATURE.1.1.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_180'/>
+180
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_180'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Elf_Warrior_GW_1_1.jpg&#34;, &#34;ELFWARRIOR.WG.ELFWARRIOR.CREATURE.1.1.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_181'/>
+181
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_181'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Elf_Warrior_G_1_1.jpg&#34;, &#34;ELFWARRIOR.G.ELFWARRIOR.CREATURE.1.1.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_182'/>
+182
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_182'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Faerie_Rogue_B_1_1.jpg&#34;, &#34;FAERIEROGUE.B.FAERIEROGUE.CREATURE.1.1.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_183'/>
+183
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_183'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Faerie_Rogue_UB_1_1.jpg&#34;, &#34;FAERIEROGUE.UB.FAERIEROGUE.CREATURE.1.1.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_184'/>
+184
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_184'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Faerie_U_1_1.jpg&#34;, &#34;FAERIE.U.FAERIE.CREATURE.1.1.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_185'/>
+185
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_185'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Festering_Goblin_B_1_1.jpg&#34;, &#34;FESTERINGGOBLIN.B.ZOMBIEGOBLIN.CREATURE.1.1.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_186'/>
+186
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_186'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Fish_U_3_3.jpg&#34;, &#34;FISH.U.FISH.CREATURE.3.3.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_187'/>
+187
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_187'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Frog_Lizard_G_3_3.jpg&#34;, &#34;FROGLIZARD.G.FROGLIZARD.CREATURE.3.3.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_188'/>
+188
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_188'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Gargoyle_3_4.jpg&#34;, &#34;GARGOYLE..GARGOYLE.CREATUREARTIFACT.3.4.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_189'/>
+189
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_189'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Germ_B_0_0.jpg&#34;, &#34;GERM.B.GERM.CREATURE.0.0.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_190'/>
+190
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_190'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Giant_R_4_4.jpg&#34;, &#34;GIANT.R.GIANT.CREATURE.4.4.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_191'/>
+191
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_191'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Giant_Warrior_RG_4_4.jpg&#34;, &#34;GIANTWARRIOR.RG.GIANTWARRIOR.CREATURE.4.4.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_192'/>
+192
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_192'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Giant_Warrior_W_5_5.jpg&#34;, &#34;GIANTWARRIOR.W.GIANTWARRIOR.CREATURE.5.5.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_193'/>
+193
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_193'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Gnome_1_1.jpg&#34;, &#34;GNOME..GNOME.ARTIFACTCREATURE.1.1.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_194'/>
+194
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_194'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Goat_W_0_1.jpg&#34;, &#34;GOAT.W.GOAT.CREATURE.0.1.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_195'/>
+195
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_195'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Goblin_R_1_1.jpg&#34;, &#34;GOBLIN.R.GOBLIN.CREATURE.1.1.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_196'/>
+196
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_196'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Goblin_R_2_1.jpg&#34;, &#34;GOBLIN.R.GOBLIN.CREATURE.2.1.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_197'/>
+197
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_197'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Goblin_Rogue_B_1_1.jpg&#34;, &#34;GOBLINROGUE.B.GOBLINROGUE.CREATURE.1.1.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_198'/>
+198
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_198'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Goblin_Scout_R_1_1.jpg&#34;, &#34;GOBLINSCOUT.R.GOBLINSCOUT.CREATURE.1.1.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_199'/>
+199
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_199'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Goblin_Soldier_RW_1_1.jpg&#34;, &#34;GOBLINSOLDIER.WR.GOBLINSOLDIER.CREATURE.1.1.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_200'/>
+200
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_200'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Goblin_Warrior_RG_1_1.jpg&#34;, &#34;GOBLINWARRIOR.RG.GOBLINWARRIOR.CREATURE.1.1.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_201'/>
+201
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_201'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Gold_.jpg&#34;, &#34;GOLD...ARTIFACT.0.0.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_202'/>
+202
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_202'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Goldmeadow_Harrier_W_1_1.jpg&#34;, &#34;GOLDMEADOWHARRIER.W.KITHKINSOLDIER.CREATURE.1.1.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_203'/>
+203
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_203'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Golem_3_3.jpg&#34;, &#34;GOLEM..GOLEM.ARTIFACTCREATURE.3.3.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_204'/>
+204
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_204'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Golem_3_3_Enchantment.jpg&#34;, &#34;GOLEM..GOLEM.ENCHANTMENTARTIFACTCREATURE.3.3.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_205'/>
+205
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_205'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Golem_9_9.jpg&#34;, &#34;GOLEM..GOLEM.ARTIFACTCREATURE.9.9.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_206'/>
+206
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_206'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Graveborn_BR_3_1.jpg&#34;, &#34;GRAVEBORN.BR.GRAVEBORN.CREATURE.3.1.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_207'/>
+207
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_207'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Griffin_W_2_2.jpg&#34;, &#34;GRIFFIN.W.GRIFFIN.CREATURE.2.2.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_208'/>
+208
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_208'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Harpy_B_1_1.jpg&#34;, &#34;HARPY.B.HARPY.CREATURE.1.1.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_209'/>
+209
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_209'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Hellion_R_4_4.jpg&#34;, &#34;HELLION.R.HELLION.CREATURE.4.4.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_210'/>
+210
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_210'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Hippo_G_1_1.jpg&#34;, &#34;HIPPO.G.HIPPO.CREATURE.1.1.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_211'/>
+211
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_211'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Homunculus_U_0_1.jpg&#34;, &#34;HOMUNCULUS.U.HOMUNCULUS.CREATUREARTIFACT.0.1.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_212'/>
+212
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_212'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Homunculus_U_2_2.jpg&#34;, &#34;HOMUNCULUS.U.HOMUNCULUS.CREATURE.2.2.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_213'/>
+213
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_213'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Hornet_1_1.jpg&#34;, &#34;HORNET..INSECT.ARTIFACTCREATURE.1.1.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_214'/>
+214
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_214'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Horror_B_4_4.jpg&#34;, &#34;HORROR.B.HORROR.CREATURE.4.4.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_215'/>
+215
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_215'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Horror_B_X_X.jpg&#34;, &#34;HORROR.B.HORROR.CREATURE.X.X.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_216'/>
+216
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_216'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Horror_UB_1_1.jpg&#34;, &#34;HORROR.UB.HORROR.CREATURE.1.1.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_217'/>
+217
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_217'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Horror_X_X.jpg&#34;, &#34;HORROR..HORROR.ARTIFACTCREATURE.X.X.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_218'/>
+218
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_218'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Hound_G_1_1.jpg&#34;, &#34;HOUND.G.HOUND.CREATURE.1.1.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_219'/>
+219
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_219'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Human_Cleric_WB_1_1.jpg&#34;, &#34;HUMANCLERIC.WB.HUMANCLERIC.CREATURE.1.1.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_220'/>
+220
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_220'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Human_R_1_1.jpg&#34;, &#34;HUMAN.R.HUMAN.CREATURE.1.1.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_221'/>
+221
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_221'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Human_Soldier_W_1_1.jpg&#34;, &#34;HUMANSOLDIER.W.HUMANSOLDIER.CREATURE.1.1.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_222'/>
+222
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_222'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Human_W_1_1.jpg&#34;, &#34;HUMAN.W.HUMAN.CREATURE.1.1.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_223'/>
+223
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_223'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Hydra_G_X_X.jpg&#34;, &#34;HYDRA.G.HYDRA.CREATURE.X.X.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_224'/>
+224
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_224'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Illusion_U_1_1.jpg&#34;, &#34;ILLUSION.U.ILLUSION.CREATURE.1.1.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_225'/>
+225
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_225'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Illusion_U_2_2.jpg&#34;, &#34;ILLUSION.U.ILLUSION.CREATURE.2.2.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_226'/>
+226
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_226'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Insect_G_1_1.jpg&#34;, &#34;INSECT.G.INSECT.CREATURE.1.1.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_227'/>
+227
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_227'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Insect_G_6_1.jpg&#34;, &#34;INSECT.G.INSECT.CREATURE.6.1.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_228'/>
+228
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_228'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Kaldra_4_4.jpg&#34;, &#34;KALDRA..AVATAR.CREATURE.4.4.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_229'/>
+229
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_229'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Kavu_B_3_3.jpg&#34;, &#34;KAVU.B.KAVU.CREATURE.3.3.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_230'/>
+230
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_230'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Kelp_U_0_1.jpg&#34;, &#34;KELP.U.PLANTWALL.CREATURE.0.1.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_231'/>
+231
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_231'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Kithkin_Soldier_W_1_1.jpg&#34;, &#34;KITHKINSOLDIER.W.KITHKINSOLDIER.CREATURE.1.1.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_232'/>
+232
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_232'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Knight_Ally_W_2_2.jpg&#34;, &#34;KNIGHTALLY.W.KNIGHTALLY.CREATURE.2.2.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_233'/>
+233
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_233'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Knight_B_2_2.jpg&#34;, &#34;KNIGHT.B.KNIGHT.CREATURE.2.2.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_234'/>
+234
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_234'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Knight_W_1_1.jpg&#34;, &#34;KNIGHT.W.KNIGHT.CREATURE.1.1.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_235'/>
+235
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_235'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Knight_W_2_2.jpg&#34;, &#34;KNIGHT.W.KNIGHT.CREATURE.2.2.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_236'/>
+236
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_236'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Kobolds_of_Kher_Keep_R_0_1.jpg&#34;, &#34;KOBOLDSOFKHERKEEP.R.KOBOLD.CREATURE.0.1.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_237'/>
+237
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_237'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Kor_Ally_W_1_1.jpg&#34;, &#34;KORALLY.W.KORALLY.CREATURE.1.1.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_238'/>
+238
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_238'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Kor_Soldier_W_1_1.jpg&#34;, &#34;KORSOLDIER.W.KORSOLDIER.CREATURE.1.1.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_239'/>
+239
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_239'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Kraken_U_9_9.jpg&#34;, &#34;KRAKEN.U.KRAKEN.CREATURE.9.9.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_240'/>
+240
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_240'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Landmine_.jpg&#34;, &#34;LANDMINE...ARTIFACT.0.0.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_241'/>
+241
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_241'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Lightning_Ranger_R_5_1.jpg&#34;, &#34;LIGHTNINGRAGER.R.ELEMENTAL.CREATURE.5.1.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_242'/>
+242
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_242'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Lizard_G_2_2.jpg&#34;, &#34;LIZARD.G.LIZARD.CREATURE.2.2.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_243'/>
+243
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_243'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Llanowar_Elves_G_1_1.jpg&#34;, &#34;LLANOWARELVES.G.ELFDRUID.CREATURE.1.1.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_244'/>
+244
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_244'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Manifest_2_2.jpg&#34;, &#34;MANIFEST.....full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_245'/>
+245
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_245'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Marit_Lage_B_20_20.jpg&#34;, &#34;MARITLAGE.B.AVATAR.CREATURE.20.20.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_246'/>
+246
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_246'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Merfolk_U_1_1.jpg&#34;, &#34;MERFOLK.U.MERFOLK.CREATURE.1.1.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_247'/>
+247
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_247'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Merfolk_Wizard_U_1_1.jpg&#34;, &#34;MERFOLKWIZARD.U.MERFOLKWIZARD.CREATURE.1.1.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_248'/>
+248
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_248'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Metallic_Sliver_1_1.jpg&#34;, &#34;METALLICSLIVER..SLIVER.CREATUREARTIFACT.1.1.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_249'/>
+249
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_249'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Minion_B_1_1.jpg&#34;, &#34;MINION.B.MINION.CREATURE.1.1.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_250'/>
+250
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_250'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Minion_B_X_X.jpg&#34;, &#34;MINION.B.MINION.CREATURE.X.X.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_251'/>
+251
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_251'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Minor_Demon_BR_1_1.jpg&#34;, &#34;MINORDEMON.BR.DEMON.CREATURE.1.1.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_252'/>
+252
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_252'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Minotaur_R_2_3.jpg&#34;, &#34;MINOTAUR.R.MINOTAUR.CREATURE.2.3.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_253'/>
+253
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_253'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Monk_W_1_1.jpg&#34;, &#34;MONK.W.MONK.CREATURE.1.1.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_254'/>
+254
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_254'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Morph_2_2.jpg&#34;, &#34;MORPH.....full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_255'/>
+255
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_255'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Myr_1_1.jpg&#34;, &#34;MYR..MYR.CREATUREARTIFACT.1.1.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_256'/>
+256
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_256'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Octopus_U_8_8.jpg&#34;, &#34;OCTOPUS.U.OCTOPUS.CREATURE.8.8.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_257'/>
+257
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_257'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Ogre_R_3_3.jpg&#34;, &#34;OGRE.R.OGRE.CREATURE.3.3.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_258'/>
+258
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_258'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Ogre_R_4_4.jpg&#34;, &#34;OGRE.R.OGRE.CREATURE.4.4.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_259'/>
+259
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_259'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Ooze_G_1_1.jpg&#34;, &#34;OOZE.G.OOZE.CREATURE.1.1.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_260'/>
+260
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_260'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Ooze_G_2_2.jpg&#34;, &#34;OOZE.G.OOZE.CREATURE.2.2.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_261'/>
+261
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_261'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Ooze_G_3_3.jpg&#34;, &#34;OOZE.G.OOZE.CREATURE.3.3.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_262'/>
+262
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_262'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Orb_U_X_X.jpg&#34;, &#34;ORB.U.ORB.CREATURE.X.X.jpg.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_263'/>
+263
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_263'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Pegasus_W_1_1.jpg&#34;, &#34;PEGASUS.W.PEGASUS.CREATURE.1.1.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_264'/>
+264
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_264'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Pentavite_1_1.jpg&#34;, &#34;PENTAVITE..PENTAVITE.ARTIFACTCREATURE.1.1.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_265'/>
+265
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_265'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Pest_0_1.jpg&#34;, &#34;PEST..PEST.ARTIFACTCREATURE.0.1.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_266'/>
+266
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_266'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Pincher_2_2.jpg&#34;, &#34;PINCHER..PINCHER.CREATURE.2.2.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_267'/>
+267
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_267'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Plant_G_0_1.jpg&#34;, &#34;PLANT.G.PLANT.CREATURE.0.1.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_268'/>
+268
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_268'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Plant_G_1_1.jpg&#34;, &#34;PLANT.G.PLANT.CREATURE.1.1.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_269'/>
+269
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_269'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Rat_B_1_1.jpg&#34;, &#34;RAT.B.RAT.CREATURE.1.1.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_270'/>
+270
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_270'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Reflection_W_2_2.jpg&#34;, &#34;REFLECTION.W.REFLECTION.CREATURE.2.2.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_271'/>
+271
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_271'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Rhino_G_4_4.jpg&#34;, &#34;RHINO.G.RHINO.CREATURE.4.4.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_272'/>
+272
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_272'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Rukh_R_4_4.jpg&#34;, &#34;BIRD.R.BIRD.CREATURE.4.4.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_273'/>
+273
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_273'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Sand_1_1.jpg&#34;, &#34;SAND..SAND.CREATURE.1.1.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_274'/>
+274
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_274'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Sand_Warrior_RGW_1_1.jpg&#34;, &#34;SANDWARRIOR.WRG.SANDWARRIOR.CREATURE.1.1.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_275'/>
+275
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_275'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Saporling_G_1_1.jpg&#34;, &#34;SAPROLING.G.SAPROLING.CREATURE.1.1.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_276'/>
+276
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_276'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Satyr_RG_2_2.jpg&#34;, &#34;SATYR.RG.SATYR.CREATURE.2.2.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_277'/>
+277
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_277'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Serf_B_0_1.jpg&#34;, &#34;SERF.B.SERF.CREATURE.0.1.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_278'/>
+278
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_278'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Shapeshifter_1_1.jpg&#34;, &#34;SHAPESHIFTER..SHAPESHIFTER.CREATURE.1.1.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_279'/>
+279
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_279'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Skeleton_B_1_1.jpg&#34;, &#34;SKELETON.B.SKELETON.CREATURE.1.1.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_280'/>
+280
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_280'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Sliver_1_1.jpg&#34;, &#34;SLIVER..SLIVER.CREATURE.1.1.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_281'/>
+281
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_281'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Snake_1_1.jpg&#34;, &#34;SNAKE..SNAKE.ARTIFACTCREATURE.1.1.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_282'/>
+282
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_282'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Snake_B_1_1.jpg&#34;, &#34;SNAKE.B.SNAKE.CREATURE.1.1.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_283'/>
+283
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_283'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Snake_GB_1_1.jpg&#34;, &#34;SNAKE.BG.SNAKE.ENCHANTMENTCREATURE.1.1.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_284'/>
+284
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_284'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Snake_GU_1_1.jpg&#34;, &#34;SNAKE.UG.SNAKE.CREATURE.1.1.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_285'/>
+285
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_285'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Snake_G_1_1.jpg&#34;, &#34;SNAKE.G.SNAKE.CREATURE.1.1.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_286'/>
+286
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_286'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Soldier_Ally_W_1_1.jpg&#34;, &#34;SOLDIERALLY.W.SOLDIERALLY.CREATURE.1.1.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_287'/>
+287
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_287'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Soldier_RW_1_1.jpg&#34;, &#34;SOLDIER.WR.SOLDIER.CREATURE.1.1.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_288'/>
+288
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_288'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Soldier_R_1_1.jpg&#34;, &#34;SOLDIER.R.SOLDIER.CREATURE.1.1.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_289'/>
+289
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_289'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Soldier_W_1_1.jpg&#34;, &#34;SOLDIER.W.SOLDIER.CREATURE.1.1.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_290'/>
+290
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_290'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Soldier_W_1_1_Enchantment.jpg&#34;, &#34;SOLDIER.W.SOLDIER.ENCHANTMENTCREATURE.1.1.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_291'/>
+291
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_291'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Spark_Elemental_R_3_1.jpg&#34;, &#34;SPARKELEMENTAL.R.ELEMENTAL.CREATURE.3.1.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_292'/>
+292
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_292'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Spawn_2_2.jpg&#34;, &#34;SPAWN..SPAWN.ARTIFACTCREATURE.2.2.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_293'/>
+293
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_293'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Sphinx_U_4_4.jpg&#34;, &#34;SPHINX.U.SPHINX.CREATURE.4.4.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_294'/>
+294
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_294'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Spider_B_2_4.jpg&#34;, &#34;SPIDER.B.SPIDER.CREATURE.2.4.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_295'/>
+295
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_295'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Spider_G_1_2.jpg&#34;, &#34;SPIDER.G.SPIDER.CREATURE.1.2.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_296'/>
+296
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_296'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Spider_G_1_3.jpg&#34;, &#34;SPIDER.G.SPIDER.ENCHANTMENTCREATURE.1.3.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_297'/>
+297
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_297'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Spike_G_1_1.jpg&#34;, &#34;SPIKE.G.SPIKE.CREATURE.1.1.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_298'/>
+298
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_298'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Spirit_1_1.jpg&#34;, &#34;SPIRIT..SPIRIT.CREATURE.1.1.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_299'/>
+299
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_299'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Spirit_U_1_1.jpg&#34;, &#34;SPIRIT.U.SPIRIT.CREATURE.1.1.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_300'/>
+300
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_300'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Spirit_WB_1_1.jpg&#34;, &#34;SPIRIT.WB.SPIRIT.CREATURE.1.1.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_301'/>
+301
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_301'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Spirit_WB_y_y.jpg&#34;, &#34;SPIRIT.WB.SPIRIT.ENCHANTMENTCREATURE.S.S.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_302'/>
+302
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_302'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Spirit_W_1_1.jpg&#34;, &#34;SPIRIT.W.SPIRIT.CREATURE.1.1.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_303'/>
+303
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_303'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Spirit_W_3_3.jpg&#34;, &#34;SPIRIT.W.SPIRIT.CREATURE.3.3.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_304'/>
+304
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_304'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Spirit_Warror_BG_y_y.jpg&#34;, &#34;SPIRITWARRIOR.BG.SPIRITWARRIOR.CREATURE.S.S.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_305'/>
+305
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_305'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Squid_U_1_1.jpg&#34;, &#34;SQUID.U.SQUID.CREATURE.1.1.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_306'/>
+306
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_306'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Squirrel_G_1_1.jpg&#34;, &#34;SQUIRREL.G.SQUIRREL.CREATURE.1.1.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_307'/>
+307
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_307'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Stoneforged_Blade_.jpg&#34;, &#34;STONEFORGEDBLADE..EQUIPMENT.ARTIFACT.0.0.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_308'/>
+308
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_308'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Tetravite_1_1.jpg&#34;, &#34;TETRAVITE..TETRAVITE.CREATUREARTIFACT.1.1.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_309'/>
+309
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_309'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Thopter_1_1.jpg&#34;, &#34;THOPTER..THOPTER.ARTIFACTCREATURE.1.1.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_310'/>
+310
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_310'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Thopter_U_1_1.jpg&#34;, &#34;THOPTER.U.THOPTER.CREATUREARTIFACT.1.1.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_311'/>
+311
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_311'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Thrull_B_0_1.jpg&#34;, &#34;THRULL.B.THRULL.CREATURE.0.1.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_312'/>
+312
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_312'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Thrull_B_1_1.jpg&#34;, &#34;THRULL.B.THRULL.CREATURE.1.1.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_313'/>
+313
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_313'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Treefolk_G_X_X.jpg&#34;, &#34;TREEFOLK.G.TREEFOLK.CREATURE.X.X.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_314'/>
+314
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_314'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Treefolk_Shaman_G_2_5.jpg&#34;, &#34;TREEFOLKSHAMAN.G.TREEFOLKSHAMAN.CREATURE.2.5.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_315'/>
+315
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_315'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Treefolk_Warrior_G_y_y.jpg&#34;, &#34;TREEFOLKWARRIOR.G.TREEFOLKWARRIOR.CREATURE.S.S.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_316'/>
+316
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_316'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Triskelavite_1_1.jpg&#34;, &#34;TRISKELAVITE..TRISKELAVITE.ARTIFACTCREATURE.1.1.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_317'/>
+317
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_317'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Tuktuk_the_Returned_5_5.jpg&#34;, &#34;TUKTUKTHERETURNED..GOBLIN.ARTIFACTCREATURE.5.5.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_318'/>
+318
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_318'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Urami_B_5_5.jpg&#34;, &#34;URAMI.B.DEMONSPIRIT.CREATURE.5.5.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_319'/>
+319
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_319'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Vampire_B_1_1.jpg&#34;, &#34;VAMPIRE.B.VAMPIRE.CREATURE.1.1.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_320'/>
+320
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_320'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Vampire_B_2_2.jpg&#34;, &#34;VAMPIRE.B.VAMPIRE.CREATURE.2.2.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_321'/>
+321
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_321'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Vampire_B_X_X.jpg&#34;, &#34;VAMPIRE.B.VAMPIRE.CREATURE.X.X.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_322'/>
+322
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_322'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Vampire_Knight_B_1_1.jpg&#34;, &#34;VAMPIREKNIGHT.B.VAMPIREKNIGHT.CREATURE.1.1.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_323'/>
+323
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_323'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Voja_GW_2_2.jpg&#34;, &#34;VOJA.WG.WOLF.CREATURE.2.2.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_324'/>
+324
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_324'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Wall_U_5_5.jpg&#34;, &#34;WALL.U.WALL.CREATURE.5.5.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_325'/>
+325
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_325'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Warrior_B_2_1.jpg&#34;, &#34;WARRIOR.B.WARRIOR.CREATURE.2.1.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_326'/>
+326
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_326'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Warrior_R_1_1.jpg&#34;, &#34;WARRIOR.R.WARRIOR.CREATURE.1.1.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_327'/>
+327
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_327'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Warrior_W_1_1.jpg&#34;, &#34;WARRIOR.W.WARRIOR.CREATURE.1.1.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_328'/>
+328
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_328'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Wasp_1_1.jpg&#34;, &#34;WASP..INSECT.ARTIFACTCREATURE.1.1.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_329'/>
+329
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_329'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Weird_U_3_3.jpg&#34;, &#34;WEIRD.U.WEIRD.CREATURE.3.3.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_330'/>
+330
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_330'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Whale_U_6_6.jpg&#34;, &#34;WHALE.U.WHALE.CREATURE.6.6.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_331'/>
+331
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_331'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Wirefly_2_2.jpg&#34;, &#34;WIREFLY..INSECT.ARTIFACTCREATURE.2.2.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_332'/>
+332
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_332'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Wolf_G_2_2.jpg&#34;, &#34;WOLF.G.WOLF.CREATURE.2.2.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_333'/>
+333
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_333'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Wood_G_0_1.jpg&#34;, &#34;WOOD.G.WALL.CREATURE.0.1.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_334'/>
+334
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_334'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Worm_BG_1_1.jpg&#34;, &#34;WORM.BG.WORM.CREATURE.1.1.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_335'/>
+335
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_335'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Wurm_3_3.jpg&#34;, &#34;WURM..WURM.ARTIFACTCREATURE.3.3.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_336'/>
+336
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_336'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Wurm_B_6_6.jpg&#34;, &#34;WURM.B.WURM.CREATURE.6.6.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_337'/>
+337
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_337'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Wurm_G_6_6.jpg&#34;, &#34;WURM.G.WURM.CREATURE.6.6.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_338'/>
+338
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_338'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Zombie_B_2_2.jpg&#34;, &#34;ZOMBIE.B.ZOMBIE.CREATURE.2.2.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_339'/>
+339
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_339'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Zombie_B_2_2_Enchantment.jpg&#34;, &#34;ZOMBIE.B.ZOMBIE.ENCHANTMENTCREATURE.2.2.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_340'/>
+340
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_340'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Zombie_B_5_5.jpg&#34;, &#34;ZOMBIEGIANT.B.ZOMBIEGIANT.CREATURE.5.5.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_341'/>
+341
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_341'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Zombie_B_X_X.jpg&#34;, &#34;ZOMBIE.B.ZOMBIE.CREATURE.X.X.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_342'/>
+342
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_342'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Zombie_Horror_B_X_X.jpg&#34;, &#34;ZOMBIEHORROR.B.ZOMBIEHORROR.CREATURE.X.X.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_343'/>
+343
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_343'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Zombie_U_X_X.jpg&#34;, &#34;ZOMBIE.U.ZOMBIE.CREATURE.X.X.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_344'/>
+344
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_344'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        copyUrlToImage.put(&#34;Zombie_Wizard_UB_1_1.jpg&#34;, &#34;ZOMBIEWIZARD.UB.ZOMBIEWIZARD.CREATURE.1.1.full.jpg&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_345'/>
+345
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_345'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_346'/>
+346
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_346'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        for (String key : copyUrlToImage.keySet()) {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_347'/>
+347
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_347'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>            copyUrlToImageDone.put(key, maxTimes);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_348'/>
+348
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_348'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>            copyImageToUrl.put(copyUrlToImage.get(key), key);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_349'/>
+349
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_349'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_350'/>
+350
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_350'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_351'/>
+351
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_351'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_352'/>
+352
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_352'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_353'/>
+353
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_353'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public String generateTokenUrl(CardDownloadData card) throws IOException {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_354'/>
+354
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_354'>1</a>
+<span>
+
+1. generateTokenUrl : negated conditional &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>        if (copyUrlToImage == null) {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_355'/>
+355
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_355'>1</a>
+<span>
+
+1. generateTokenUrl : removed call to org/mage/plugins/card/dl/sources/MtgOnlTokensImageSource::setupLinks &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>            setupLinks();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_356'/>
+356
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_356'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_357'/>
+357
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_357'>1</a>
+<span>
+
+1. generateTokenUrl : mutated return of Object value for org/mage/plugins/card/dl/sources/MtgOnlTokensImageSource::generateTokenUrl to ( if (x != null) null else throw new RuntimeException ) &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>        return null;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_358'/>
+358
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_358'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_359'/>
+359
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_359'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_360'/>
+360
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_360'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_361'/>
+361
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_361'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public int getTotalImages() {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_362'/>
+362
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_362'>1</a>
+<span>
+
+1. getTotalImages : negated conditional &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>        if (copyUrlToImage == null) {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_363'/>
+363
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_363'>1</a>
+<span>
+
+1. getTotalImages : removed call to org/mage/plugins/card/dl/sources/MtgOnlTokensImageSource::setupLinks &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>            setupLinks();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_364'/>
+364
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_364'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_365'/>
+365
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_365'>1</a>
+<span>
+
+1. getTotalImages : negated conditional &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>        if (copyUrlToImage != null) {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_366'/>
+366
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_366'>1</a>
+<span>
+
+1. getTotalImages : replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>            return copyImageToUrl.size();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_367'/>
+367
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_367'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_368'/>
+368
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_368'>1</a>
+<span>
+
+1. getTotalImages : replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>        return -1;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_369'/>
+369
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_369'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_370'/>
+370
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_370'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_371'/>
+371
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_371'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_372'/>
+372
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_372'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public boolean isTokenSource() {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_373'/>
+373
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_373'>1</a>
+<span>
+
+1. isTokenSource : replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>        return true;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_374'/>
+374
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_374'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_375'/>
+375
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_375'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_376'/>
+376
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_376'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_377'/>
+377
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_377'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public void doPause(String httpImageUrl) {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_378'/>
+378
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_378'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_379'/>
+379
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_379'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_380'/>
+380
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_380'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_381'/>
+381
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_381'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public boolean isImageProvided(String setCode, String cardName) {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_382'/>
+382
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_382'>1</a>
+<span>
+
+1. isImageProvided : replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>        return true;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_383'/>
+383
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_383'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_384'/>
+384
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_384'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_385'/>
+385
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_385'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_47'>47</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_47'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getSourceName<br/><b>Killed by : </b>none</span></span> mutated return of Object value for org/mage/plugins/card/dl/sources/MtgOnlTokensImageSource::getSourceName to ( if (x != null) null else throw new RuntimeException ) &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_52'>52</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_52'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getAverageSize<br/><b>Killed by : </b>none</span></span> replaced return of float value with -(x + 1) for org/mage/plugins/card/dl/sources/MtgOnlTokensImageSource::getAverageSize &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_57'>57</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_57'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getNextHttpImageUrl<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_58'>58</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_58'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getNextHttpImageUrl<br/><b>Killed by : </b>none</span></span> removed call to org/mage/plugins/card/dl/sources/MtgOnlTokensImageSource::setupLinks &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_62'>62</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_62'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getNextHttpImageUrl<br/><b>Killed by : </b>none</span></span> changed conditional boundary &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>getNextHttpImageUrl<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_64'>64</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_64'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getNextHttpImageUrl<br/><b>Killed by : </b>none</span></span> mutated return of Object value for org/mage/plugins/card/dl/sources/MtgOnlTokensImageSource::getNextHttpImageUrl to ( if (x != null) null else throw new RuntimeException ) &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_67'>67</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_67'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getNextHttpImageUrl<br/><b>Killed by : </b>none</span></span> changed conditional boundary &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>getNextHttpImageUrl<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_68'>68</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_68'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getNextHttpImageUrl<br/><b>Killed by : </b>none</span></span> Replaced integer addition with subtraction &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_71'>71</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_71'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getNextHttpImageUrl<br/><b>Killed by : </b>none</span></span> changed conditional boundary &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>getNextHttpImageUrl<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_73'>73</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_73'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getNextHttpImageUrl<br/><b>Killed by : </b>none</span></span> mutated return of Object value for org/mage/plugins/card/dl/sources/MtgOnlTokensImageSource::getNextHttpImageUrl to ( if (x != null) null else throw new RuntimeException ) &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_76'>76</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_76'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getNextHttpImageUrl<br/><b>Killed by : </b>none</span></span> mutated return of Object value for org/mage/plugins/card/dl/sources/MtgOnlTokensImageSource::getNextHttpImageUrl to ( if (x != null) null else throw new RuntimeException ) &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_81'>81</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_81'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getFileForHttpImage<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_82'>82</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_82'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getFileForHttpImage<br/><b>Killed by : </b>none</span></span> mutated return of Object value for org/mage/plugins/card/dl/sources/MtgOnlTokensImageSource::getFileForHttpImage to ( if (x != null) null else throw new RuntimeException ) &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_84'>84</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_84'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getFileForHttpImage<br/><b>Killed by : </b>none</span></span> mutated return of Object value for org/mage/plugins/card/dl/sources/MtgOnlTokensImageSource::getFileForHttpImage to ( if (x != null) null else throw new RuntimeException ) &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_89'>89</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_89'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>generateURL<br/><b>Killed by : </b>none</span></span> mutated return of Object value for org/mage/plugins/card/dl/sources/MtgOnlTokensImageSource::generateURL to ( if (x != null) null else throw new RuntimeException ) &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_97'>97</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_97'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>setupLinks<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_354'>354</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_354'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>generateTokenUrl<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_355'>355</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_355'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>generateTokenUrl<br/><b>Killed by : </b>none</span></span> removed call to org/mage/plugins/card/dl/sources/MtgOnlTokensImageSource::setupLinks &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_357'>357</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_357'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>generateTokenUrl<br/><b>Killed by : </b>none</span></span> mutated return of Object value for org/mage/plugins/card/dl/sources/MtgOnlTokensImageSource::generateTokenUrl to ( if (x != null) null else throw new RuntimeException ) &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_362'>362</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_362'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getTotalImages<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_363'>363</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_363'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getTotalImages<br/><b>Killed by : </b>none</span></span> removed call to org/mage/plugins/card/dl/sources/MtgOnlTokensImageSource::setupLinks &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_365'>365</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_365'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getTotalImages<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_366'>366</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_366'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getTotalImages<br/><b>Killed by : </b>none</span></span> replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_368'>368</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_368'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getTotalImages<br/><b>Killed by : </b>none</span></span> replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_373'>373</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_373'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isTokenSource<br/><b>Killed by : </b>none</span></span> replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_382'>382</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2d8f6ce1_382'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isImageProvided<br/><b>Killed by : </b>none</span></span> replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+
+<li class='mutator'>INCREMENTS_MUTATOR</li>
+
+<li class='mutator'>VOID_METHOD_CALL_MUTATOR</li>
+
+<li class='mutator'>RETURN_VALS_MUTATOR</li>
+
+<li class='mutator'>MATH_MUTATOR</li>
+
+<li class='mutator'>NEGATE_CONDITIONALS_MUTATOR</li>
+
+<li class='mutator'>INVERT_NEGS_MUTATOR</li>
+
+<li class='mutator'>CONDITIONALS_BOUNDARY_MUTATOR</li>
+
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+</ul>
+
+<br/>
+
+Report generated by <a href='http://pitest.org'>PIT</a> 1.4.0
+
+</body>
+</html>
